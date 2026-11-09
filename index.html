@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Scam Radar — разбор скамов и безопасные приложения. Только официальные ссылки." />
+  <title>Scam Radar — безопасность и разбор скамов</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #141a22;
+      --surface2: #1c2430;
+      --border: #2a3544;
+      --text: #e8eef6;
+      --muted: #9aa8b8;
+      --accent: #3dd6c6;
+      --accent-dim: #2a9e92;
+      --warn: #f0b429;
+      --danger: #e85d5d;
+      --radius: 14px;
+      --shadow: 0 8px 32px rgba(0,0,0,.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 24px 20px 64px; }
+    header.hero {
+      text-align: center;
+      padding: 48px 16px 36px;
+      background: radial-gradient(ellipse at top, #16303a 0%, transparent 60%);
+      border-bottom: 1px solid var(--border);
+      margin: -24px -20px 32px;
+      padding-left: 20px; padding-right: 20px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 28px;
+      font-size: 1.05rem;
+    }
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .15s, background .15s;
+      text-decoration: none;
+      color: var(--bg);
+      background: var(--accent);
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; filter: brightness(1.05); }
+    .btn.secondary {
+      background: var(--surface2);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn.ghost {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent-dim);
+    }
+    section { margin-bottom: 40px; }
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::before {
+      content: "";
+      width: 4px; height: 1.1em;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 14px; }
+    .card .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .card .placeholder {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      color: var(--warn);
+      background: rgba(240,180,41,.08);
+      border: 1px dashed rgba(240,180,41,.35);
+      padding: 6px 8px;
+      border-radius: 6px;
+      word-break: break-all;
+    }
+    .note {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--warn);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .note strong { color: var(--warn); }
+    .note ul { margin: 10px 0 0 18px; color: var(--muted); }
+    .note li { margin-bottom: 6px; }
+    .links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .links-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .links-list .label { font-weight: 600; }
+    .links-list .value { color: var(--muted); font-size: 0.9rem; word-break: break-all; }
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer .en { margin-top: 8px; opacity: .75; }
+    .lang-toggle {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="badge">Security · Scam analysis</div>
+      <h1>Scam Radar</h1>
+      <p>
+        Разборы схем обмана и подборка безопасных приложений.
+        Только официальные ссылки — мы никогда не просим деньги, сид-фразы или пароли.
+      </p>
+      <div class="cta">
+        <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Telegram-канал</a>
+      </div>
+      <p class="lang-toggle">RU · <span style="opacity:.5">EN below in footer</span></p>
+    </header>
+
+    <section>
+      <h2>Официальные ссылки</h2>
+      <ul class="links-list">
+        <li>
+          <span class="label">Канал</span>
+          <span class="value"><a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">t.me/ScamRadarDaily</a></span>
+        </li>
+      </ul>
+    </section>
+
+
+    <section>
+      <h2>Как проверить официальные ссылки</h2>
+      <div class="note">
+        <strong>Важно:</strong> мошенники часто копируют оформление и подменяют ссылки.
+        <ul>
+          <li>Открывайте только ссылки из закреплённого поста канала <a href="https://t.me/ScamRadarDaily">@ScamRadarDaily</a> или с этого сайта.</li>
+          <li>Мы <strong>никогда</strong> не просим деньги, «комиссию», сид-фразы, seed, private key или пароли.</li>
+          <li>Мы <strong>никогда</strong> не пишем в личку первыми с просьбой перевести крипту или установить «VIP-доступ».</li>
+          <li>Любой «клон» канала или сайта с похожим именем — считайте подделкой.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>© Scam Radar · образовательный проект о безопасности</p>
+      <p>Канал: <a href="https://t.me/ScamRadarDaily">t.me/ScamRadarDaily</a></p>
+      <p class="en">
+        Scam Radar — scam analysis &amp; security apps. Official links only.
+        We never ask for money, seed phrases, or passwords.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
