@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Scam Radar — разбор скамов и безопасные приложения. Только официальные ссылки." />
-  <title>Scam Radar — безопасность и разбор скамов</title>
+  <meta name="description" content="Scam Radar — ежедневные разборы схем мошенничества и оригинальные приложения для безопасности. Только официальные ссылки." />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>Scam Radar — разборы скамов и безопасность</title>
   <style>
     :root {
       --bg: #0b0f14;
@@ -15,102 +16,187 @@
       --muted: #9aa8b8;
       --accent: #3dd6c6;
       --accent-dim: #2a9e92;
+      --accent-glow: rgba(61,214,198,.35);
       --warn: #f0b429;
       --danger: #e85d5d;
+      --ok: #5dcea3;
       --radius: 14px;
       --shadow: 0 8px 32px rgba(0,0,0,.45);
+      --nav-h: 56px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.55;
       min-height: 100vh;
+      overflow-x: hidden;
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 24px 20px 64px; }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(61,214,198,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(61,214,198,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at 50% 20%, #000 0%, transparent 70%);
+    }
+    .bg-particles {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    }
+    .bg-particles span {
+      position: absolute; width: 3px; height: 3px; border-radius: 50%;
+      background: var(--accent); opacity: .25;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: .3; }
+      90% { opacity: .2; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 24px 20px 64px; position: relative; z-index: 1; }
+
+    /* NAV */
+    .topnav {
+      position: sticky; top: 0; z-index: 50;
+      margin: -24px -20px 0; padding: 10px 16px;
+      background: rgba(11,15,20,.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .topnav .brand {
+      font-weight: 800; letter-spacing: -.02em; color: var(--text);
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    }
+    .topnav .brand .dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent-glow);
+      animation: ping 2.2s ease-out infinite;
+    }
+    .topnav nav { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+    .topnav nav a {
+      color: var(--muted); font-size: 13px; font-weight: 600;
+      padding: 6px 8px; border-radius: 8px; text-decoration: none;
+    }
+    .topnav nav a:hover { color: var(--accent); background: rgba(61,214,198,.08); text-decoration: none; }
+
+    /* HERO */
     header.hero {
       text-align: center;
-      padding: 48px 16px 36px;
-      background: radial-gradient(ellipse at top, #16303a 0%, transparent 60%);
-      border-bottom: 1px solid var(--border);
-      margin: -24px -20px 32px;
+      padding: 56px 16px 44px;
+      margin: 0 -20px 40px;
       padding-left: 20px; padding-right: 20px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(ellipse at 50% 0%, #16303a 0%, transparent 58%);
+      overflow: hidden;
+    }
+    .radar {
+      width: 140px; height: 140px; margin: 0 auto 22px; position: relative;
+    }
+    .radar .ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid rgba(61,214,198,.25);
+      animation: radarPulse 3s ease-out infinite;
+    }
+    .radar .ring:nth-child(2) { animation-delay: .8s; inset: 18%; }
+    .radar .ring:nth-child(3) { animation-delay: 1.6s; inset: 36%; }
+    .radar .core {
+      position: absolute; inset: 42%; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 24px var(--accent-glow), 0 0 48px rgba(61,214,198,.2);
+    }
+    .radar .sweep {
+      position: absolute; inset: 8%; border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(61,214,198,.45) 40deg, transparent 70deg);
+      animation: spin 4s linear infinite;
+      mask-image: radial-gradient(circle, transparent 35%, #000 36%);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes radarPulse {
+      0% { transform: scale(.85); opacity: .8; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+      70% { box-shadow: 0 0 0 10px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
     }
     .badge {
       display: inline-block;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent-dim);
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 16px;
+      font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent-dim);
+      padding: 4px 10px; border-radius: 999px; margin-bottom: 16px;
     }
     h1 {
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
+      font-size: clamp(1.9rem, 5.5vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px;
     }
-    .hero p {
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 28px;
-      font-size: 1.05rem;
-    }
-    .cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
+    .typed-wrap {
+      min-height: 1.6em; margin-bottom: 16px;
+      font-size: clamp(1rem, 2.8vw, 1.2rem); color: var(--accent);
       font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform .15s, background .15s;
-      text-decoration: none;
-      color: var(--bg);
-      background: var(--accent);
     }
-    .btn:hover { transform: translateY(-1px); text-decoration: none; filter: brightness(1.05); }
+    .typed-wrap .cursor {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--accent); margin-left: 2px; vertical-align: -2px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero > p.lead {
+      color: var(--muted); max-width: 560px; margin: 0 auto 28px; font-size: 1.05rem;
+    }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: .95rem;
+      border: 1px solid transparent; cursor: pointer;
+      transition: transform .2s, background .2s, box-shadow .2s, filter .2s;
+      text-decoration: none; color: var(--bg); background: var(--accent);
+    }
+    .btn:hover {
+      transform: translateY(-2px); text-decoration: none; filter: brightness(1.06);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
     .btn.secondary {
-      background: var(--surface2);
-      color: var(--text);
-      border-color: var(--border);
+      background: var(--surface2); color: var(--text); border-color: var(--border);
     }
+    .btn.secondary:hover { box-shadow: 0 8px 24px rgba(0,0,0,.35); filter: none; }
     .btn.ghost {
-      background: transparent;
-      color: var(--accent);
-      border-color: var(--accent-dim);
+      background: transparent; color: var(--accent); border-color: var(--accent-dim);
     }
-    section { margin-bottom: 40px; }
+
+    section { margin-bottom: 56px; scroll-margin-top: calc(var(--nav-h) + 12px); }
     h2 {
-      font-size: 1.25rem;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 1.35rem; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 10px;
     }
     h2::before {
-      content: "";
-      width: 4px; height: 1.1em;
-      background: var(--accent);
-      border-radius: 2px;
+      content: ""; width: 4px; height: 1.1em; background: var(--accent); border-radius: 2px;
+      box-shadow: 0 0 12px var(--accent-glow);
     }
+    .section-lead { color: var(--muted); margin-bottom: 20px; max-width: 640px; font-size: .95rem; }
+
+    /* reveal */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .16s; }
+    .reveal-delay-3 { transition-delay: .24s; }
+    .reveal-delay-4 { transition-delay: .32s; }
+
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
     }
     .card {
@@ -119,116 +205,565 @@
       border-radius: var(--radius);
       padding: 20px;
       box-shadow: var(--shadow);
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      position: relative; overflow: hidden;
     }
-    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 14px; }
-    .card .meta {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 12px;
+    .card::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(135deg, rgba(61,214,198,.06), transparent 40%);
+      opacity: 0; transition: opacity .25s;
     }
-    .card .placeholder {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11px;
-      color: var(--warn);
-      background: rgba(240,180,41,.08);
-      border: 1px dashed rgba(240,180,41,.35);
-      padding: 6px 8px;
-      border-radius: 6px;
-      word-break: break-all;
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-dim);
+      box-shadow: 0 12px 36px rgba(0,0,0,.5), 0 0 0 1px rgba(61,214,198,.15);
     }
+    .card:hover::after { opacity: 1; }
+    .card .tag {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(61,214,198,.1); border: 1px solid rgba(61,214,198,.25);
+      padding: 2px 8px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .card .tag.danger { color: var(--danger); background: rgba(232,93,93,.1); border-color: rgba(232,93,93,.3); }
+    .card .tag.warn { color: var(--warn); background: rgba(240,180,41,.1); border-color: rgba(240,180,41,.3); }
+    .card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+    .card p, .card li { color: var(--muted); font-size: .9rem; }
+    .card ul { margin: 8px 0 0 18px; }
+    .card li { margin-bottom: 4px; }
+    .card .subh {
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+      color: var(--text); margin: 12px 0 4px; opacity: .85;
+    }
+
     .note {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--warn);
-      border-radius: var(--radius);
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 4px solid var(--warn); border-radius: var(--radius);
       padding: 18px 20px;
     }
+    .note.ok { border-left-color: var(--ok); }
+    .note.accent { border-left-color: var(--accent); }
     .note strong { color: var(--warn); }
+    .note.ok strong { color: var(--ok); }
+    .note.accent strong { color: var(--accent); }
     .note ul { margin: 10px 0 0 18px; color: var(--muted); }
     .note li { margin-bottom: 6px; }
-    .links-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+
+    .checklist {
+      display: grid; gap: 10px;
     }
+    .check-item {
+      display: grid; grid-template-columns: 36px 1fr; gap: 12px;
+      align-items: start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+      transition: border-color .2s, transform .2s;
+    }
+    .check-item:hover { border-color: var(--accent-dim); transform: translateX(4px); }
+    .check-num {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: rgba(61,214,198,.12); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 13px;
+    }
+    .check-item h3 { font-size: .98rem; margin-bottom: 4px; }
+    .check-item p { color: var(--muted); font-size: .88rem; }
+
+    .app-card .meta { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .app-card .perms {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;
+    }
+    .pill {
+      font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--muted);
+    }
+    .pill.good { color: var(--ok); border-color: rgba(93,206,163,.35); background: rgba(93,206,163,.08); }
+
+    .links-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .links-list li {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; flex-wrap: wrap;
+      transition: border-color .2s, transform .2s;
     }
-    .links-list .label { font-weight: 600; }
-    .links-list .value { color: var(--muted); font-size: 0.9rem; word-break: break-all; }
+    .links-list li:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+    .links-list .label { font-weight: 700; }
+    .links-list .value { color: var(--muted); font-size: .9rem; word-break: break-all; }
+    .links-list .desc { width: 100%; color: var(--muted); font-size: .85rem; margin-top: -4px; }
+
+    .faq details {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px 16px; margin-bottom: 10px;
+      transition: border-color .2s;
+    }
+    .faq details[open] { border-color: var(--accent-dim); }
+    .faq summary {
+      cursor: pointer; font-weight: 700; list-style: none;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+"; color: var(--accent); font-size: 1.2rem; font-weight: 400;
+      transition: transform .2s;
+    }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { color: var(--muted); margin-top: 10px; font-size: .92rem; }
+
     footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+      text-align: center; color: var(--muted); font-size: .85rem;
     }
     footer .en { margin-top: 8px; opacity: .75; }
-    .lang-toggle {
-      margin-top: 20px;
-      font-size: 13px;
-      color: var(--muted);
+    .to-top {
+      position: fixed; right: 16px; bottom: 16px; z-index: 40;
+      width: 42px; height: 42px; border-radius: 12px;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--accent);
+      display: grid; place-items: center; text-decoration: none;
+      opacity: 0; pointer-events: none; transition: opacity .3s, transform .2s;
+      box-shadow: var(--shadow);
+    }
+    .to-top.show { opacity: 1; pointer-events: auto; }
+    .to-top:hover { transform: translateY(-2px); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .topnav nav { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+      .topnav nav a { white-space: nowrap; font-size: 12px; }
+      .cards { grid-template-columns: 1fr; }
+      header.hero { padding-top: 36px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .radar .ring, .radar .sweep, .topnav .brand .dot, .bg-particles span, .typed-wrap .cursor { animation: none !important; }
+      .card:hover, .btn:hover, .check-item:hover, .links-list li:hover { transform: none; }
     }
   </style>
 </head>
 <body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-particles" id="particles" aria-hidden="true"></div>
+
   <div class="wrap">
-    <header class="hero">
+    <div class="topnav">
+      <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span> Scam Radar</a>
+      <nav>
+        <a href="#about">О проекте</a>
+        <a href="#schemes">Разборы</a>
+        <a href="#checklist">Чек-лист</a>
+        <a href="#apps">Приложения</a>
+        <a href="#social">Соцсети</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+
+    <header class="hero" id="top">
+      <div class="radar" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="sweep"></div>
+        <div class="core"></div>
+      </div>
       <div class="badge">Security · Scam analysis</div>
       <h1>Scam Radar</h1>
-      <p>
-        Разборы схем обмана и подборка безопасных приложений.
-        Только официальные ссылки — мы никогда не просим деньги, сид-фразы или пароли.
+      <div class="typed-wrap" aria-live="polite"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></div>
+      <p class="lead">
+        Ежедневные разборы схем обмана и оригинальные приложения для безопасности.
+        Мы никогда не просим деньги, сид-фразы, пароли или «комиссию за доступ».
       </p>
       <div class="cta">
         <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Telegram-канал</a>
+        <a class="btn secondary" href="#schemes">Смотреть разборы</a>
+        <a class="btn ghost" href="#apps">Приложения</a>
       </div>
-      <p class="lang-toggle">RU · <span style="opacity:.5">EN below in footer</span></p>
     </header>
 
-    <section>
-      <h2>Официальные ссылки</h2>
-      <ul class="links-list">
-        <li>
-          <span class="label">Канал</span>
-          <span class="value"><a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">t.me/ScamRadarDaily</a></span>
-        </li>
-      </ul>
+    <section id="about" class="reveal">
+      <h2>О проекте</h2>
+      <p class="section-lead">Scam Radar — образовательный проект о кибербезопасности. Без рекламы чужих «инвестиций» и без продажи VIP-доступов.</p>
+      <div class="cards">
+        <div class="card reveal reveal-delay-1">
+          <span class="tag">Контент</span>
+          <h3>Разборы схем</h3>
+          <p>Короткие понятные разборы типичных скамов: как устроена схема, на что смотреть и что делать, если уже попали в ловушку.</p>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <span class="tag">Приложения</span>
+          <h3>Свои утилиты</h3>
+          <p>Оригинальные Android-приложения по теме безопасности и критического мышления. APK публикуются только в официальном Telegram-канале.</p>
+        </div>
+        <div class="card reveal reveal-delay-3">
+          <span class="tag">Правила</span>
+          <h3>Только официальные ссылки</h3>
+          <p>Любой «клон» канала или сайта с похожим именем — считайте подделкой. Мы не пишем в личку первыми с просьбой перевести крипту.</p>
+        </div>
+      </div>
     </section>
 
+    <section id="schemes">
+      <h2 class="reveal">Разборы схем</h2>
+      <p class="section-lead reveal">Шесть частых схем. Это образование: как распознать обман, а не как его устроить.</p>
+      <div class="cards">
 
-    <section>
-      <h2>Как проверить официальные ссылки</h2>
-      <div class="note">
-        <strong>Важно:</strong> мошенники часто копируют оформление и подменяют ссылки.
+        <article class="card reveal">
+          <span class="tag danger">Телефон</span>
+          <h3>Звонок «из банка» / «безопасный счёт»</h3>
+          <p class="subh">Как работает</p>
+          <p>Звонят от имени банка или полиции: «счёт пытаются взломать — срочно переведите деньги на безопасный счёт / продиктуйте код из SMS».</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Давление и срочность («у вас 5 минут»).</li>
+            <li>Просьба продиктовать код из SMS или установить удалённый доступ.</li>
+            <li>Номер не из официального приложения банка — spoofing легко подделать.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Положить трубку. Перезвонить в банк только по номеру с карты или из приложения.</li>
+            <li>Коды из SMS никому не диктовать — даже «сотруднику».</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-1">
+          <span class="tag danger">Крипто</span>
+          <h3>Фейковый airdrop / wallet drainer</h3>
+          <p class="subh">Как работает</p>
+          <p>В Telegram, Discord или X пишут: «бесплатные токены — подключи кошелёк». Сайт просит подпись (sign) или approve токенов и опустошает кошелёк.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>«Срочно забери airdrop», ссылка не с официального сайта проекта.</li>
+            <li>Запрос seed / private key — это всегда скам.</li>
+            <li>Непонятный approve на бесконечный лимит токенов.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Не подключать кошелёк к случайным сайтам. Проверять URL вручную.</li>
+            <li>Seed-фразу никогда никуда не вводить. При подозрении — отозвать approvals через проверенный revoke-инструмент.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-2">
+          <span class="tag warn">Telegram</span>
+          <h3>Фишинг-ссылки в Telegram</h3>
+          <p class="subh">Как работает</p>
+          <p>Сообщение от «друга», «админа» или «поддержки»: «подтверди аккаунт», «получи приз», «твой аккаунт заблокируют». Ссылка ведёт на поддельный login.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Бот или человек пишет первым и торопит.</li>
+            <li>Домен похож на telegram.org / web.telegram.org, но с опечаткой.</li>
+            <li>Просят войти через браузер и ввести код из приложения.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Не переходить. Проверить username и закреп канала вручную.</li>
+            <li>Включить 2FA в Telegram. Сессии: Настройки → Устройства — выйти из чужих.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="tag danger">Инвестиции</span>
+          <h3>Фейковые инвестиционные боты</h3>
+          <p class="subh">Как работает</p>
+          <p>Бот «торгует за вас»: сначала показывают маленький «профит», потом требуют депозит / комиссию за вывод. Денег назад нет.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Гарантированная доходность «3% в день» без риска.</li>
+            <li>Вывод блокируют, пока не «доплатите налог/комиссию».</li>
+            <li>Нет лицензии, юрадреса, только чат в Telegram и крипта.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Не вносить «комиссию за вывод» — это классика.</li>
+            <li>Сохранить переписку и адреса кошельков; обратиться в полицию / киберподразделение.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-1">
+          <span class="tag danger">SIM</span>
+          <h3>SIM-swap (подмена SIM)</h3>
+          <p class="subh">Как работает</p>
+          <p>Мошенник через оператора или соцтехнику перевыпускает вашу SIM. SMS-коды 2FA приходят ему — открываются банки, почта, крипто-биржи.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Вдруг пропала связь, «сеть недоступна».</li>
+            <li>SMS о смене SIM / eSIM, которую вы не заказывали.</li>
+            <li>Неожиданные коды входа в сервисы.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Сразу к оператору — заблокировать номер. Параллельно — банк и биржи.</li>
+            <li>Где можно — отказаться от SMS-2FA в пользу приложения-аутентификатора или ключа.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-2">
+          <span class="tag warn">Маркетплейс</span>
+          <h3>Предоплата на досках объявлений</h3>
+          <p class="subh">Как работает</p>
+          <p>«Покупатель» присылает ссылку «получи оплату» / «подтверди доставку» или просит предоплату «за бронь». Либо «продавец» берёт предоплату и пропадает.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Сделка только вне площадки, только по ссылке в мессенджере.</li>
+            <li>Давление: «сейчас уеду / товар другому».</li>
+            <li>Ссылка на «платёжный шлюз» с подозрительным доменом.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Платить через защиту сделки площадки. Не открывать чужие «оплаты».</li>
+            <li>Предоплату незнакомцу без гарантий — почти всегда риск.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="checklist" class="reveal">
+      <h2>Чек-лист: как проверить ссылку, бота и приложение</h2>
+      <p class="section-lead">Перед тем как нажать, войти или установить — пройдите по списку.</p>
+      <div class="checklist">
+        <div class="check-item reveal">
+          <div class="check-num">1</div>
+          <div>
+            <h3>Откуда ссылка?</h3>
+            <p>Только из закреплённого поста <a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">@ScamRadarDaily</a> или с этого сайта. Случайный репост и «срочно перейди» — стоп.</p>
+          </div>
+        </div>
+        <div class="check-item reveal reveal-delay-1">
+          <div class="check-num">2</div>
+          <div>
+            <h3>Домен глазами</h3>
+            <p>Сверьте написание посимвольно. Подделки любят <code>rn</code> вместо <code>m</code>, лишний дефис, другой TLD (.top, .xyz вместо привычного).</p>
+          </div>
+        </div>
+        <div class="check-item reveal reveal-delay-2">
+          <div class="check-num">3</div>
+          <div>
+            <h3>Бот в Telegram</h3>
+            <p>Смотрите username, дату создания, есть ли @BotFather-описание. Бот, который просит seed, пароль или перевод «для проверки», — скам.</p>
+          </div>
+        </div>
+        <div class="check-item reveal">
+          <div class="check-num">4</div>
+          <div>
+            <h3>Приложение / APK</h3>
+            <p>Ставьте только из канала Scam Radar. Сверяйте имя файла и, если указан, SHA-256. Не ставьте APK из лички и чужих «зеркал».</p>
+          </div>
+        </div>
+        <div class="check-item reveal reveal-delay-1">
+          <div class="check-num">5</div>
+          <div>
+            <h3>Разрешения</h3>
+            <p>Калькулятору не нужен доступ к SMS и контактам. Лишние разрешения — повод не устанавливать.</p>
+          </div>
+        </div>
+        <div class="check-item reveal reveal-delay-2">
+          <div class="check-num">6</div>
+          <div>
+            <h3>Деньги и секреты</h3>
+            <p>Мы никогда не просим деньги, «комиссию», сид-фразу, private key или пароль. Если просят — это не мы.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apps">
+      <h2 class="reveal">Приложения</h2>
+      <p class="section-lead reveal">Оригинальные утилиты Scam Radar. APK публикуются в Telegram-канале — прямых ссылок на скачивание с сайта нет специально, чтобы снизить риск поддельных зеркал.</p>
+      <div class="cards">
+        <article class="card app-card reveal">
+          <span class="tag">Android</span>
+          <h3>Spread Radar</h3>
+          <p class="meta">v1.1 · только чтение · без ключей и торговли</p>
+          <p>«Рентген» треугольного арбитража по публичным данным Binance: циклы с учётом вашей комиссии, депег стейблкоинов, спреды. Кошелёк — только публичный адрес. Не финансовый совет.</p>
+          <div class="perms">
+            <span class="pill good">без seed / ключей</span>
+            <span class="pill">INTERNET</span>
+            <span class="pill">APK в канале</span>
+          </div>
+        </article>
+        <article class="card app-card reveal reveal-delay-1">
+          <span class="tag">Android</span>
+          <h3>Prompt Shield Lab</h3>
+          <p class="meta">v1.2 · офлайн · без разрешений</p>
+          <p>Защитный планировщик для промптов: детектор рискованных формулировок, canary-проверки вашего ассистента, сравнение инструкций. Это не набор джейлбрейков — только защита.</p>
+          <div class="perms">
+            <span class="pill good">офлайн</span>
+            <span class="pill good">без разрешений</span>
+            <span class="pill">APK в канале</span>
+          </div>
+        </article>
+        <article class="card app-card reveal reveal-delay-2">
+          <span class="tag">Android</span>
+          <h3>Prompt Forge</h3>
+          <p class="meta">v1.0 · офлайн · RU/EN</p>
+          <p>Конструктор промптов: структура с оценкой, шаблоны системных инструкций, техники, разбор и переписывание, canary-тесты защиты вашего ассистента (безвредный маркер).</p>
+          <div class="perms">
+            <span class="pill good">офлайн</span>
+            <span class="pill good">ничего не сохраняет</span>
+            <span class="pill">APK в канале</span>
+          </div>
+        </article>
+      </div>
+      <div class="note accent reveal" style="margin-top:18px">
+        <strong>Где скачать:</strong> актуальные APK и подписи — только в
+        <a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">t.me/ScamRadarDaily</a>.
+        Если файл прислали в личку или с «зеркала» — не устанавливайте.
+      </div>
+    </section>
+
+    <section id="social" class="reveal">
+      <h2>Мы в соцсетях</h2>
+      <p class="section-lead">Официальные точки входа. Остальное с похожим названием — почти наверняка клон.</p>
+      <ul class="links-list">
+        <li>
+          <div>
+            <div class="label">Telegram-канал</div>
+            <div class="desc">Разборы, новости и публикации APK</div>
+          </div>
+          <span class="value"><a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">t.me/ScamRadarDaily</a></span>
+        </li>
+        <!-- INSTAGRAM_PLACEHOLDER: boss Instagram handle not found in workspace/memory.
+             When known, uncomment and set href:
+        <li>
+          <div>
+            <div class="label">Instagram</div>
+            <div class="desc">Короткие алерты и разборы</div>
+          </div>
+          <span class="value"><a href="https://www.instagram.com/HANDLE/" target="_blank" rel="noopener">@HANDLE</a></span>
+        </li>
+        -->
+      </ul>
+      <div class="note ok" style="margin-top:16px">
+        <strong>Напоминание:</strong>
         <ul>
-          <li>Открывайте только ссылки из закреплённого поста канала <a href="https://t.me/ScamRadarDaily">@ScamRadarDaily</a> или с этого сайта.</li>
-          <li>Мы <strong>никогда</strong> не просим деньги, «комиссию», сид-фразы, seed, private key или пароли.</li>
-          <li>Мы <strong>никогда</strong> не пишем в личку первыми с просьбой перевести крипту или установить «VIP-доступ».</li>
-          <li>Любой «клон» канала или сайта с похожим именем — считайте подделкой.</li>
+          <li>Мы не просим деньги, сид-фразы, пароли или «VIP-оплату».</li>
+          <li>Мы не пишем в личку первыми с просьбой что-то установить или перевести.</li>
+          <li>Официальный сайт этого проекта: страница на GitHub Pages (этот адрес).</li>
         </ul>
       </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2 class="reveal">FAQ</h2>
+      <details class="reveal">
+        <summary>Вы продаёте доступ к маркетплейсу / VIP?</summary>
+        <p>Нет. Scam Radar — про разборы скамов и свои утилиты безопасности. Любой, кто под видом «Scam Radar» продаёт VIP, зеркала магазина или просит крипту, — мошенник.</p>
+      </details>
+      <details class="reveal reveal-delay-1">
+        <summary>Где скачать приложения?</summary>
+        <p>Только в Telegram-канале <a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">@ScamRadarDaily</a>. С сайта намеренно нет прямых APK-ссылок — так проще не попасть на поддельное зеркало.</p>
+      </details>
+      <details class="reveal reveal-delay-2">
+        <summary>Почему приложение просит интернет / не просит разрешений?</summary>
+        <p>У каждого приложения свой профиль: например, Spread Radar читает публичные рыночные данные (нужен интернет), Prompt Shield Lab и Prompt Forge работают офлайн и без разрешений. Описание всегда рядом с APK в канале.</p>
+      </details>
+      <details class="reveal">
+        <summary>Мне написали в личку «из Scam Radar» — это вы?</summary>
+        <p>Скорее всего нет. Не переходите по ссылкам из таких сообщений и не ставьте присланные файлы. Сверьте канал по точной ссылке t.me/ScamRadarDaily.</p>
+      </details>
+      <details class="reveal reveal-delay-1">
+        <summary>Можно ли перепечатать разбор?</summary>
+        <p>Да, для образовательных целей — со ссылкой на канал. Не выдавайте чужие материалы за официальные посты Scam Radar и не добавляйте в них платёжные реквизиты.</p>
+      </details>
     </section>
 
     <footer>
       <p>© Scam Radar · образовательный проект о безопасности</p>
       <p>Канал: <a href="https://t.me/ScamRadarDaily">t.me/ScamRadarDaily</a></p>
       <p class="en">
-        Scam Radar — scam analysis &amp; security apps. Official links only.
+        Scam Radar — scam breakdowns &amp; security apps. Official links only.
         We never ask for money, seed phrases, or passwords.
       </p>
     </footer>
   </div>
+
+  <a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* particles */
+      var host = document.getElementById('particles');
+      if (host && !reduce) {
+        for (var i = 0; i < 18; i++) {
+          var s = document.createElement('span');
+          s.style.left = Math.random() * 100 + '%';
+          s.style.animationDuration = 12 + Math.random() * 18 + 's';
+          s.style.animationDelay = Math.random() * 12 + 's';
+          s.style.width = s.style.height = 2 + Math.random() * 3 + 'px';
+          host.appendChild(s);
+        }
+      }
+
+      /* typed / rotating headline */
+      var phrases = [
+        'Разбираем схемы — до того, как вы потеряете деньги',
+        'Фейковые банки, airdrop’ы, боты и SIM-swap',
+        'Официальные ссылки. Без VIP и «безопасных счетов»',
+        'Свои приложения — APK только в Telegram-канале'
+      ];
+      var el = document.getElementById('typed');
+      if (el) {
+        if (reduce) {
+          el.textContent = phrases[0];
+        } else {
+          var pi = 0, ci = 0, deleting = false;
+          function tick() {
+            var full = phrases[pi];
+            if (!deleting) {
+              ci++;
+              el.textContent = full.slice(0, ci);
+              if (ci === full.length) {
+                deleting = true;
+                setTimeout(tick, 2200);
+                return;
+              }
+              setTimeout(tick, 36 + Math.random() * 40);
+            } else {
+              ci--;
+              el.textContent = full.slice(0, ci);
+              if (ci === 0) {
+                deleting = false;
+                pi = (pi + 1) % phrases.length;
+                setTimeout(tick, 400);
+                return;
+              }
+              setTimeout(tick, 22);
+            }
+          }
+          tick();
+        }
+      }
+
+      /* scroll reveal */
+      var nodes = document.querySelectorAll('.reveal');
+      if (reduce) {
+        nodes.forEach(function (n) { n.classList.add('in'); });
+      } else if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        nodes.forEach(function (n) { io.observe(n); });
+      } else {
+        nodes.forEach(function (n) { n.classList.add('in'); });
+      }
+
+      /* back to top */
+      var topBtn = document.getElementById('toTop');
+      function onScroll() {
+        if (!topBtn) return;
+        if (window.scrollY > 500) topBtn.classList.add('show');
+        else topBtn.classList.remove('show');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 </body>
 </html>
