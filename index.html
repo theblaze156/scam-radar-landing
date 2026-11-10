@@ -390,6 +390,33 @@
     .schemes-status.error { color: var(--warn); }
     .scheme-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .plan-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .plan-card h3 { margin-bottom: 8px; }
+    .plan-card > p { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
+    .plan-card ul { margin: 0 0 16px 18px; flex: 1; }
+    .plan-card li { color: var(--muted); font-size: .92rem; margin-bottom: 8px; }
+    .plan-card .plan-note {
+      font-size: .85rem; color: var(--muted); margin: 0 0 14px;
+    }
+    .plan-card .cta { justify-content: flex-start; margin-top: auto; }
+    .plan-card.plan-premium {
+      border-color: rgba(61,214,198,.35);
+      box-shadow: var(--shadow), 0 0 0 1px rgba(61,214,198,.12);
+    }
+    @media (max-width: 640px) {
+      .plan-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 640px) {
       .topnav nav { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
       .topnav nav a { white-space: nowrap; font-size: 12px; }
@@ -414,6 +441,7 @@
       <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span> Scam Radar</a>
       <nav>
         <a href="#about">О проекте</a>
+        <a href="#pricing">Доступ</a>
         <a href="#schemes">Разборы</a>
         <a href="#checklist">Чек-лист</a>
         <a href="#apps">Приложения</a>
@@ -435,18 +463,19 @@
       <div class="typed-wrap" aria-live="polite"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></div>
       <p class="lead">
         Ежедневные разборы схем обмана и оригинальные приложения для безопасности.
-        Мы никогда не просим деньги, сид-фразы, пароли или «комиссию за доступ».
+        Базовое — бесплатно: канал, разборы, приложения и чек-лист. Premium, платные сборки APK и поддержка проекта оформляются в официальном Telegram-канале.
+        На сайте нет оплаты и форм для карт или кошельков. Мы никогда не просим сид-фразы, пароли или «комиссию за доступ».
       </p>
       <div class="cta">
-        <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Telegram-канал</a>
-        <a class="btn secondary" href="#schemes">Смотреть разборы</a>
+        <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Открыть канал бесплатно</a>
+        <a class="btn secondary" href="#pricing">Бесплатно и Premium</a>
         <a class="btn ghost" href="#apps">Приложения</a>
       </div>
     </header>
 
     <section id="about" class="reveal">
       <h2>О проекте</h2>
-      <p class="section-lead">Scam Radar — образовательный проект о кибербезопасности. Без рекламы чужих «инвестиций» и без продажи VIP-доступов.</p>
+      <p class="section-lead">Scam Radar — образовательный проект о кибербезопасности. Без рекламы чужих «инвестиций» и без продажи доступов к чужим магазинам. Базовое на сайте бесплатно; платные опции оформляются только в официальном Telegram-канале.</p>
       <div class="cards">
         <div class="card reveal reveal-delay-1">
           <span class="tag">Контент</span>
@@ -463,6 +492,52 @@
           <h3>Только официальные ссылки</h3>
           <p>Любой «клон» канала или сайта с похожим именем — считайте подделкой. Мы не пишем в личку первыми с просьбой перевести крипту.</p>
         </div>
+      </div>
+    </section>
+
+
+    <section id="pricing" class="reveal">
+      <h2>Бесплатно и Premium</h2>
+      <p class="section-lead">Всё основное можно использовать бесплатно. Дополнительные опции заказываются в официальном Telegram-канале. На этом сайте нет оформления оплаты и нет сбора платёжных данных.</p>
+      <div class="plan-grid">
+        <article class="card plan-card reveal reveal-delay-1">
+          <span class="tag">Бесплатно</span>
+          <h3>Базовый доступ</h3>
+          <p>Доступно сразу, без оплаты.</p>
+          <ul>
+            <li>Telegram-канал</li>
+            <li>Разборы схем</li>
+            <li>Базовые приложения Scam Radar</li>
+            <li>Чек-лист проверки ссылок, ботов и приложений</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Открыть канал бесплатно</a>
+          </div>
+        </article>
+        <article class="card plan-card plan-premium reveal reveal-delay-2">
+          <span class="tag warn">Premium</span>
+          <h3>Платные опции</h3>
+          <p>Заказ — через официальный канал или контакт в Telegram.</p>
+          <ul>
+            <li>Ранний доступ к новым приложениям</li>
+            <li>Расширенные разборы и отчёты</li>
+            <li>Купить APK — платные сборки Spread Radar, Prompt Shield Lab и Prompt Forge</li>
+            <li>Личная проверка проекта или кошелька на скам (заявка)</li>
+            <li>Поддержать проект — донат</li>
+          </ul>
+          <p class="plan-note"><strong>Способы оплаты:</strong> криптовалюта (BTC, USDT, LTC) — основной; PayPal — по запросу. Реквизиты выдаются при заказе. Цены на сайте не публикуем.</p>
+          <p class="plan-note">Закреплённых разборов и рекламы «проверенных проектов» мы не продаём: это легко спутать с нашей рекомендацией.</p>
+          <!-- PREMIUM_LINK: replace both hrefs below with a dedicated bot or order-contact link when it is ready. Until then the official channel is the only destination. -->
+          <!-- Payment wallets are issued only at order time and must not be rendered on the page:
+               {{WALLET_BTC}}
+               {{WALLET_USDT}}
+               {{WALLET_LTC}}
+          -->
+          <div class="cta">
+            <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Получить Premium</a>
+            <a class="btn secondary" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Поддержать проект</a>
+          </div>
+        </article>
       </div>
     </section>
 
