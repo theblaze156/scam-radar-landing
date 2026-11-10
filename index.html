@@ -325,6 +325,71 @@
     .to-top.show { opacity: 1; pointer-events: auto; }
     .to-top:hover { transform: translateY(-2px); text-decoration: none; }
 
+
+    .schemes-toolbar { margin-bottom: 20px; }
+    .schemes-search {
+      width: 100%; max-width: 440px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font: inherit;
+      margin-bottom: 12px;
+    }
+    .schemes-search:focus {
+      outline: 2px solid rgba(61,214,198,.4);
+      border-color: var(--accent-dim);
+    }
+    .schemes-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .schemes-chip {
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color .2s, color .2s, background .2s, transform .2s;
+    }
+    .schemes-chip:hover {
+      color: var(--accent); border-color: var(--accent-dim);
+      background: rgba(61,214,198,.1);
+    }
+    .schemes-chip.active {
+      color: var(--bg); background: var(--accent); border-color: var(--accent);
+    }
+    .scheme-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; align-items: center; }
+    .tag.ok { color: var(--ok); background: rgba(93,206,163,.1); border-color: rgba(93,206,163,.3); }
+    .scheme-card details.scheme-more { margin-top: 12px; }
+    .scheme-card details.scheme-more summary {
+      cursor: pointer; color: var(--accent); font-weight: 700; font-size: .9rem;
+      list-style: none; display: flex; align-items: center; justify-content: space-between;
+    }
+    .scheme-card details.scheme-more summary::-webkit-details-marker { display: none; }
+    .scheme-card details.scheme-more summary::after {
+      content: "+"; color: var(--accent); font-weight: 400; font-size: 1.15rem;
+    }
+    .scheme-card details.scheme-more[open] summary::after { content: "−"; }
+    .scheme-body { margin-top: 10px; color: var(--muted); font-size: .9rem; }
+    .scheme-body h1, .scheme-body h2, .scheme-body h3 {
+      color: var(--text); font-size: 1rem; margin: 12px 0 6px;
+    }
+    .scheme-body p, .scheme-body ul, .scheme-body ol { margin: 6px 0; }
+    .scheme-body ul, .scheme-body ol { padding-left: 1.2em; }
+    .scheme-body a { color: var(--accent); }
+    .scheme-body code {
+      background: var(--surface2); padding: 0 4px; border-radius: 4px; font-size: .85em;
+    }
+    .scheme-body pre {
+      background: var(--surface2); padding: 10px; border-radius: 8px; overflow: auto;
+    }
+    .scheme-source { margin-top: 10px; font-size: .82rem; }
+    .schemes-status { color: var(--muted); font-size: .92rem; margin-bottom: 12px; }
+    .schemes-status.error { color: var(--warn); }
+    .scheme-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
     @media (max-width: 640px) {
       .topnav nav { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
       .topnav nav a { white-space: nowrap; font-size: 12px; }
@@ -403,9 +468,15 @@
 
     <section id="schemes">
       <h2 class="reveal">Разборы схем</h2>
-      <p class="section-lead reveal">Шесть частых схем. Это образование: как распознать обман, а не как его устроить.</p>
-      <div class="cards">
-
+      <p class="section-lead reveal">Актуальные разборы из каталога Scam Radar. Это образование: как распознать обман, а не как его устроить.</p>
+      <div class="schemes-toolbar reveal" id="schemes-toolbar" hidden>
+        <input type="search" id="schemes-search" class="schemes-search" placeholder="Поиск по разборам…" autocomplete="off">
+        <div class="schemes-chips" id="schemes-chips" role="tablist" aria-label="Категории"></div>
+      </div>
+      <p class="schemes-status" id="schemes-status">Загружаем разборы…</p>
+      <div class="cards" id="schemes-list" hidden></div>
+      <div id="schemes-fallback" hidden>
+        <div class="cards">
         <article class="card reveal">
           <span class="tag danger">Телефон</span>
           <h3>Звонок «из банка» / «безопасный счёт»</h3>
@@ -513,8 +584,120 @@
             <li>Предоплату незнакомцу без гарантий — почти всегда риск.</li>
           </ul>
         </article>
-
+        </div>
       </div>
+      <noscript>
+        <p class="schemes-status error">Чтобы увидеть актуальный каталог, включите JavaScript. Ниже — базовые разборы.</p>
+        <div class="cards">
+        <article class="card reveal">
+          <span class="tag danger">Телефон</span>
+          <h3>Звонок «из банка» / «безопасный счёт»</h3>
+          <p class="subh">Как работает</p>
+          <p>Звонят от имени банка или полиции: «счёт пытаются взломать — срочно переведите деньги на безопасный счёт / продиктуйте код из SMS».</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Давление и срочность («у вас 5 минут»).</li>
+            <li>Просьба продиктовать код из SMS или установить удалённый доступ.</li>
+            <li>Номер не из официального приложения банка — spoofing легко подделать.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Положить трубку. Перезвонить в банк только по номеру с карты или из приложения.</li>
+            <li>Коды из SMS никому не диктовать — даже «сотруднику».</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-1">
+          <span class="tag danger">Крипто</span>
+          <h3>Фейковый airdrop / wallet drainer</h3>
+          <p class="subh">Как работает</p>
+          <p>В Telegram, Discord или X пишут: «бесплатные токены — подключи кошелёк». Сайт просит подпись (sign) или approve токенов и опустошает кошелёк.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>«Срочно забери airdrop», ссылка не с официального сайта проекта.</li>
+            <li>Запрос seed / private key — это всегда скам.</li>
+            <li>Непонятный approve на бесконечный лимит токенов.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Не подключать кошелёк к случайным сайтам. Проверять URL вручную.</li>
+            <li>Seed-фразу никогда никуда не вводить. При подозрении — отозвать approvals через проверенный revoke-инструмент.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-2">
+          <span class="tag warn">Telegram</span>
+          <h3>Фишинг-ссылки в Telegram</h3>
+          <p class="subh">Как работает</p>
+          <p>Сообщение от «друга», «админа» или «поддержки»: «подтверди аккаунт», «получи приз», «твой аккаунт заблокируют». Ссылка ведёт на поддельный login.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Бот или человек пишет первым и торопит.</li>
+            <li>Домен похож на telegram.org / web.telegram.org, но с опечаткой.</li>
+            <li>Просят войти через браузер и ввести код из приложения.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Не переходить. Проверить username и закреп канала вручную.</li>
+            <li>Включить 2FA в Telegram. Сессии: Настройки → Устройства — выйти из чужих.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="tag danger">Инвестиции</span>
+          <h3>Фейковые инвестиционные боты</h3>
+          <p class="subh">Как работает</p>
+          <p>Бот «торгует за вас»: сначала показывают маленький «профит», потом требуют депозит / комиссию за вывод. Денег назад нет.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Гарантированная доходность «3% в день» без риска.</li>
+            <li>Вывод блокируют, пока не «доплатите налог/комиссию».</li>
+            <li>Нет лицензии, юрадреса, только чат в Telegram и крипта.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Не вносить «комиссию за вывод» — это классика.</li>
+            <li>Сохранить переписку и адреса кошельков; обратиться в полицию / киберподразделение.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-1">
+          <span class="tag danger">SIM</span>
+          <h3>SIM-swap (подмена SIM)</h3>
+          <p class="subh">Как работает</p>
+          <p>Мошенник через оператора или соцтехнику перевыпускает вашу SIM. SMS-коды 2FA приходят ему — открываются банки, почта, крипто-биржи.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Вдруг пропала связь, «сеть недоступна».</li>
+            <li>SMS о смене SIM / eSIM, которую вы не заказывали.</li>
+            <li>Неожиданные коды входа в сервисы.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Сразу к оператору — заблокировать номер. Параллельно — банк и биржи.</li>
+            <li>Где можно — отказаться от SMS-2FA в пользу приложения-аутентификатора или ключа.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-delay-2">
+          <span class="tag warn">Маркетплейс</span>
+          <h3>Предоплата на досках объявлений</h3>
+          <p class="subh">Как работает</p>
+          <p>«Покупатель» присылает ссылку «получи оплату» / «подтверди доставку» или просит предоплату «за бронь». Либо «продавец» берёт предоплату и пропадает.</p>
+          <p class="subh">Красные флаги</p>
+          <ul>
+            <li>Сделка только вне площадки, только по ссылке в мессенджере.</li>
+            <li>Давление: «сейчас уеду / товар другому».</li>
+            <li>Ссылка на «платёжный шлюз» с подозрительным доменом.</li>
+          </ul>
+          <p class="subh">Что делать</p>
+          <ul>
+            <li>Платить через защиту сделки площадки. Не открывать чужие «оплаты».</li>
+            <li>Предоплату незнакомцу без гарантий — почти всегда риск.</li>
+          </ul>
+        </article>
+        </div>
+      </noscript>
     </section>
 
     <section id="checklist" class="reveal">
@@ -753,6 +936,213 @@
       } else {
         nodes.forEach(function (n) { n.classList.add('in'); });
       }
+
+
+      /* catalog: published cards from cards.json */
+      var RISK_LABELS = { low: 'Низкий', medium: 'Средний', high: 'Высокий' };
+      var RISK_CLASS = { low: 'ok', medium: 'warn', high: 'danger' };
+
+      function escapeHtml(value) {
+        return String(value == null ? '' : value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function safeUrl(url) {
+        if (!url) return '';
+        var trimmed = String(url).trim();
+        if (/^https?:\/\//i.test(trimmed)) return trimmed;
+        return '';
+      }
+
+      function renderMarkdown(src) {
+        var escaped = escapeHtml(src || '');
+        var parts = escaped.split(/```([\s\S]*?)```/g);
+        var html = '';
+        for (var i = 0; i < parts.length; i++) {
+          if (i % 2 === 1) {
+            html += '<pre><code>' + parts[i] + '</code></pre>';
+            continue;
+          }
+          var chunk = parts[i]
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+            .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+            .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+            .replace(/^\> (.+)$/gm, '<blockquote>$1</blockquote>')
+            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+            .replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g, function (_, label, href) {
+              var url = safeUrl(href);
+              if (!url) return label;
+              return '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+            })
+            .replace(/^\- (.+)$/gm, '<li>$1</li>')
+            .replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+          chunk = chunk.replace(/(<li>[\s\S]+?<\/li>)/g, '<ul>$1</ul>');
+          chunk = chunk.replace(/^(?!<h\d|<ul|<blockquote|<pre)(.+)$/gm, '<p>$1</p>');
+          html += chunk;
+        }
+        return html;
+      }
+
+      function observeReveals(root) {
+        var nodes = (root || document).querySelectorAll('.reveal:not(.in)');
+        if (reduce) {
+          nodes.forEach(function (n) { n.classList.add('in'); });
+          return;
+        }
+        if ('IntersectionObserver' in window) {
+          var ioNew = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                ioNew.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+          nodes.forEach(function (n) { ioNew.observe(n); });
+        } else {
+          nodes.forEach(function (n) { n.classList.add('in'); });
+        }
+      }
+
+      function showFallback(message) {
+        var status = document.getElementById('schemes-status');
+        var fallback = document.getElementById('schemes-fallback');
+        var list = document.getElementById('schemes-list');
+        var toolbar = document.getElementById('schemes-toolbar');
+        if (status) {
+          status.hidden = false;
+          status.classList.add('error');
+          status.textContent = message;
+        }
+        if (toolbar) toolbar.hidden = true;
+        if (list) list.hidden = true;
+        if (fallback) {
+          fallback.hidden = false;
+          observeReveals(fallback);
+        }
+      }
+
+      function renderCatalog(data) {
+        var categories = data.categories || [];
+        var cards = data.cards || [];
+        var toolbar = document.getElementById('schemes-toolbar');
+        var chips = document.getElementById('schemes-chips');
+        var list = document.getElementById('schemes-list');
+        var status = document.getElementById('schemes-status');
+        var search = document.getElementById('schemes-search');
+        var fallback = document.getElementById('schemes-fallback');
+        if (!list || !chips) return;
+
+        if (fallback) fallback.hidden = true;
+        if (toolbar) toolbar.hidden = false;
+        list.hidden = false;
+        if (status) {
+          status.hidden = true;
+          status.classList.remove('error');
+          status.textContent = '';
+        }
+
+        var currentSlug = 'all';
+        var query = '';
+
+        chips.innerHTML = '';
+        var allBtn = document.createElement('button');
+        allBtn.type = 'button';
+        allBtn.className = 'schemes-chip active';
+        allBtn.textContent = 'Все';
+        allBtn.setAttribute('data-slug', 'all');
+        chips.appendChild(allBtn);
+        categories.forEach(function (cat) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'schemes-chip';
+          btn.textContent = cat.name;
+          btn.setAttribute('data-slug', cat.slug);
+          chips.appendChild(btn);
+        });
+
+        function matches(card) {
+          if (currentSlug !== 'all' && (!card.category || card.category.slug !== currentSlug)) return false;
+          if (!query) return true;
+          var hay = [card.title, card.summary, card.body, (card.tags || []).join(' '), card.category && card.category.name]
+            .join(' ').toLowerCase();
+          return hay.indexOf(query) !== -1;
+        }
+
+        function paint() {
+          var visible = cards.filter(matches);
+          list.innerHTML = '';
+          if (!visible.length) {
+            list.innerHTML = '<p class="schemes-status">Ничего не найдено. Измените запрос или категорию.</p>';
+            return;
+          }
+          visible.forEach(function (card, index) {
+            var article = document.createElement('article');
+            article.className = 'card scheme-card reveal' + (index % 3 ? ' reveal-delay-' + (index % 3) : '');
+            var risk = card.risk_level || 'medium';
+            var riskClass = RISK_CLASS[risk] || 'warn';
+            var tags = (card.tags || []).slice(0, 4).map(function (t) {
+              return '<span class="pill">' + escapeHtml(t) + '</span>';
+            }).join('');
+            var source = safeUrl(card.source_url);
+            var sourceHtml = source
+              ? '<p class="scheme-source">Источник: <a href="' + escapeHtml(source) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(source) + '</a></p>'
+              : '';
+            article.innerHTML =
+              '<div class="scheme-meta">' +
+                (card.category && card.category.name ? '<span class="tag">' + escapeHtml(card.category.name) + '</span>' : '') +
+                '<span class="tag ' + riskClass + '">Риск: ' + escapeHtml(RISK_LABELS[risk] || risk) + '</span>' +
+              '</div>' +
+              '<h3>' + escapeHtml(card.title) + '</h3>' +
+              '<p>' + escapeHtml(card.summary || '') + '</p>' +
+              (tags ? '<div class="scheme-tags">' + tags + '</div>' : '') +
+              '<details class="scheme-more">' +
+                '<summary>Читать разбор</summary>' +
+                '<div class="scheme-body">' + renderMarkdown(card.body || '') + sourceHtml + '</div>' +
+              '</details>';
+            list.appendChild(article);
+          });
+          observeReveals(list);
+        }
+
+        chips.addEventListener('click', function (ev) {
+          var btn = ev.target.closest('.schemes-chip');
+          if (!btn) return;
+          currentSlug = btn.getAttribute('data-slug') || 'all';
+          chips.querySelectorAll('.schemes-chip').forEach(function (el) {
+            el.classList.toggle('active', el === btn);
+          });
+          paint();
+        });
+        if (search) {
+          search.addEventListener('input', function () {
+            query = (search.value || '').trim().toLowerCase();
+            paint();
+          });
+        }
+        paint();
+      }
+
+      fetch('cards.json', { cache: 'no-store' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          if (!data || !Array.isArray(data.cards) || !data.cards.length) {
+            throw new Error('empty catalog');
+          }
+          renderCatalog(data);
+        })
+        .catch(function () {
+          showFallback('Не удалось загрузить каталог. Показаны базовые разборы, актуальные материалы — в Telegram-канале.');
+        });
 
       /* back to top */
       var topBtn = document.getElementById('toTop');
