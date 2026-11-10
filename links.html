@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ссылки Scam Radar — сайт и официальный Telegram</title>
+  <meta name="description" content="Официальные ссылки Scam Radar: сайт с разборами схем мошенничества и Telegram-канал. Чужие страницы с похожим именем — не мы." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://theblaze156.github.io/scam-radar-landing/links.html" />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Ссылки Scam Radar" />
+  <meta property="og:description" content="Официальные ссылки: сайт и Telegram-канал Scam Radar." />
+  <meta property="og:url" content="https://theblaze156.github.io/scam-radar-landing/links.html" />
+  <meta property="og:image" content="https://theblaze156.github.io/scam-radar-landing/preview.png" />
+  <style>
+    :root {
+      --bg: #0b0f14; --surface: #141a22; --border: #2a3544;
+      --text: #e8eef6; --muted: #9aa8b8; --accent: #3dd6c6; --accent-dim: #2a9e92;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; padding: 32px 20px 48px;
+    }
+    .wrap { width: min(420px, 100%); margin: 0 auto; }
+    .logo {
+      width: 72px; height: 72px; margin: 0 auto 16px; display: block;
+    }
+    h1 { text-align: center; font-size: 1.6rem; letter-spacing: -.02em; margin-bottom: 8px; }
+    .lead { text-align: center; color: var(--muted); font-size: .95rem; margin-bottom: 28px; }
+    .stack { display: flex; flex-direction: column; gap: 12px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 52px; padding: 14px 18px; border-radius: 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); font-weight: 700; font-size: 1rem;
+      text-decoration: none;
+    }
+    .btn.primary { background: var(--accent); color: #0b0f14; border-color: var(--accent); }
+    .btn:hover { border-color: var(--accent-dim); }
+    footer { margin-top: 28px; text-align: center; color: var(--muted); font-size: .8rem; }
+    footer a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="favicon.svg" width="72" height="72" alt="Логотип Scam Radar: радар бирюзового цвета на тёмном фоне" />
+    <h1>Scam Radar</h1>
+    <p class="lead">Разборы схем мошенничества и приложения для безопасности. Только официальные ссылки.</p>
+    <div class="stack">
+      <a class="btn primary" id="btn-site" href="./index.html">Сайт</a>
+      <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Telegram</a>
+      <!-- {{YOUTUBE_URL}}: when the official YouTube channel is known, uncomment and set href.
+      <a class="btn" hidden href="{{YOUTUBE_URL}}" target="_blank" rel="noopener">YouTube</a>
+      -->
+      <!-- INSTAGRAM_PLACEHOLDER / {{INSTAGRAM_URL}}: when the handle is known, uncomment and set href.
+      <a class="btn" hidden href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener">Instagram</a>
+      -->
+    </div>
+    <footer>
+      <p>Официальная страница ссылок Scam Radar.</p>
+      <p><a href="./index.html">Перейти на сайт</a></p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var site = document.getElementById('btn-site');
+      if (site && window.location.search) {
+        site.setAttribute('href', './index.html' + window.location.search);
+      }
+    })();
+  </script>
+</body>
+</html>
