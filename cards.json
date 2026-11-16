@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-11-10T02:24:53.127535+00:00",
+  "exported_at": "2026-11-16T08:25:31.050807+00:00",
   "categories": [
     {
       "id": 1,
@@ -45,9 +45,10 @@
         "мобильный",
         "антивирус"
       ],
-      "source_url": "https://www.cisa.gov/news-events/news/mobile-security-tips",
+      "source_url": "https://www.cisa.gov/news-events/news/privacy-and-mobile-device-apps",
       "cover_url": null,
       "published_at": "2026-11-05T11:00:00+00:00",
+      "updated_at": "2026-11-16T08:24:31.046743+00:00",
       "url": "https://theblaze156.github.io/scam-radar-landing/scheme/klony-antivirusnyh-i-antiskam-prilozheniy.html"
     },
     {
@@ -71,6 +72,7 @@
       "source_url": "https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-scams-and-crimes/business-email-compromise",
       "cover_url": null,
       "published_at": "2026-11-02T14:00:00+00:00",
+      "updated_at": "2026-11-10T02:06:33.698191+00:00",
       "url": "https://theblaze156.github.io/scam-radar-landing/scheme/poddelnaya-sluzhba-podderzhki-v-messendzherah.html"
     },
     {
@@ -94,6 +96,7 @@
       "source_url": "https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks",
       "cover_url": null,
       "published_at": "2026-10-28T09:30:00+00:00",
+      "updated_at": "2026-11-10T02:06:33.698191+00:00",
       "url": "https://theblaze156.github.io/scam-radar-landing/scheme/fishingovye-stranitsy-kriptokoshelkov.html"
     },
     {
@@ -114,9 +117,10 @@
         "соцсети",
         "криптовалюта"
       ],
-      "source_url": "https://www.consumer.ftc.gov/articles/how-avoid-cryptocurrency-scam",
+      "source_url": "https://consumer.ftc.gov/articles/what-know-about-cryptocurrency-scams",
       "cover_url": null,
       "published_at": "2026-10-21T10:00:00+00:00",
+      "updated_at": "2026-11-16T08:24:31.046743+00:00",
       "url": "https://theblaze156.github.io/scam-radar-landing/scheme/feykovye-razdachi-tokenov-i-nft.html"
     }
   ]

@@ -25,11 +25,7 @@
   <meta name="twitter:title" content="Scam Radar — разборы схем мошенничества и приложения для безопасности" />
   <meta name="twitter:description" content="Бесплатные разборы типичных схем, чек-лист проверки ссылок и официальные приложения Scam Radar." />
   <meta name="twitter:image" content="https://theblaze156.github.io/scam-radar-landing/preview.png" />
-  <!-- Search engine verification: uncomment and paste the real tokens from the webmaster tools. Do not leave placeholders in visible markup.
-       Google Search Console: <meta name="google-site-verification" content="{{GOOGLE_SITE_VERIFICATION}}">
-       Bing Webmaster: <meta name="msvalidate.01" content="{{BING_SITE_VERIFICATION}}">
-       Yandex Webmaster: <meta name="yandex-verification" content="{{YANDEX_SITE_VERIFICATION}}">
-  -->
+  <!-- Search engine verification: add google-site-verification / msvalidate.01 / yandex-verification meta tags here with real tokens from the webmaster tools. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,7 +36,7 @@
         "name": "Scam Radar",
         "url": "https://theblaze156.github.io/scam-radar-landing/",
         "logo": "https://theblaze156.github.io/scam-radar-landing/apple-touch-icon.png",
-        "sameAs": ["https://t.me/ScamRadarDaily"]
+        "sameAs": ["https://t.me/ScamRadarDaily", "https://www.youtube.com/@ScamRadarNews"]
       },
       {
         "@type": "WebSite",
@@ -56,6 +52,30 @@
         "@id": "https://theblaze156.github.io/scam-radar-landing/#faq",
         "inLanguage": "ru",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Как проверить сайт на мошенничество?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Откройте сайт вручную, а не по ссылке из сообщения или рекламы. Сверьте домен посимвольно с официальным, проверьте возраст домена, реальные контакты и получателя платежа. Насторожить должны гарантированная доходность, таймер «только сегодня», просьба оплатить переводом на карту физлица или криптой. HTTPS-замок означает только шифрование, а не честность сайта."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Мне пишет «поддержка» биржи или криптокошелька — это мошенники?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Почти всегда да, если пишут первыми в личку. Настоящая поддержка не просит seed-фразу, приватный ключ, код 2FA, удалённый доступ или перевод на «безопасный адрес». Прервите диалог и обратитесь в поддержку сами через официальное приложение или сайт."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to check if a website or crypto wallet link is a scam?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Type the address yourself instead of following links from DMs or ads, compare the domain character by character with the official one, and never enter a seed phrase on any website. Fake crypto support never needs your seed phrase, 2FA codes or remote access. Before signing a wallet request, read what you approve; unlimited token approvals are a common wallet phishing trick."
+            }
+          },
           {
             "@type": "Question",
             "name": "Вы продаёте доступ к маркетплейсу / VIP?",
@@ -469,7 +489,7 @@
     }
     .scheme-card details.scheme-more[open] summary::after { content: "−"; }
     .scheme-body { margin-top: 10px; color: var(--muted); font-size: .9rem; }
-    .scheme-body h1, .scheme-body h2, .scheme-body h3 {
+    .scheme-body h1, .scheme-body h2, .scheme-body h3, .scheme-body h4 {
       color: var(--text); font-size: 1rem; margin: 12px 0 6px;
     }
     .scheme-body p, .scheme-body ul, .scheme-body ol { margin: 6px 0; }
@@ -641,11 +661,6 @@
           <p class="plan-note"><strong>Способы оплаты:</strong> криптовалюта (BTC, USDT, LTC) — основной; PayPal — по запросу. Реквизиты выдаются при заказе. Цены на сайте не публикуем.</p>
           <p class="plan-note">Закреплённых разборов и рекламы «проверенных проектов» мы не продаём: это легко спутать с нашей рекомендацией.</p>
           <!-- PREMIUM_LINK: replace both hrefs below with a dedicated bot or order-contact link when it is ready. Until then the official channel is the only destination. -->
-          <!-- Payment wallets are issued only at order time and must not be rendered on the page:
-               {{WALLET_BTC}}
-               {{WALLET_USDT}}
-               {{WALLET_LTC}}
-          -->
           <div class="cta">
             <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Получить Premium</a>
             <a class="btn secondary" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Поддержать проект</a>
@@ -676,22 +691,19 @@
           <details class="scheme-more">
             <summary>Читать разбор</summary>
             <div class="scheme-body">
-              <h2>Что это такое</h2>
+              <h4>Что это такое</h4>
 
 <p>Клон известного антивируса или «сканера мошенничества» имитирует название, иконку и отзывы. После установки он запрашивает широкие права, пугает «обнаруженными угрозами» и требует оплату или доступ к аккаунтам.</p>
 
-<h2>На что смотреть перед установкой</h2>
+<h4>На что смотреть перед установкой</h4>
 
-<ul><li>Издатель в магазине приложений совпадает с официальной компанией.</li></ul>
-<ul><li>Число установок, дата публикации и отзывы выглядят естественно, а не как набор однотипных пятизвёздочных комментариев.</li></ul>
-<ul><li>Приложение не требует доступ к SMS, звонкам и спецвозможностям без понятной причины.</li></ul>
-<ul><li>Установка идёт из официального магазина, а не из APK-файла в переписке.</li></ul>
+<ul><li>Издатель в магазине приложений совпадает с официальной компанией.</li><li>Число установок, дата публикации и отзывы выглядят естественно, а не как набор однотипных пятизвёздочных комментариев.</li><li>Приложение не требует доступ к SMS, звонкам и спецвозможностям без понятной причины.</li><li>Установка идёт из официального магазина, а не из APK-файла в переписке.</li></ul>
 
-<h2>Рекомендации</h2>
+<h4>Рекомендации</h4>
 
 <p>Оставляйте только проверенные приложения безопасности. Обновления системы и магазина приложений включают важнее защиту, чем неизвестный «ускоритель» или «антискам-чистильщик».</p>
 
-              <p class="scheme-source">Источник: <a href="https://www.cisa.gov/news-events/news/mobile-security-tips" target="_blank" rel="noopener noreferrer">https://www.cisa.gov/news-events/news/mobile-security-tips</a></p>
+              <p class="scheme-source">Источник: <a href="https://www.cisa.gov/news-events/news/privacy-and-mobile-device-apps" target="_blank" rel="noopener noreferrer">https://www.cisa.gov/news-events/news/privacy-and-mobile-device-apps</a></p>
               <p class="scheme-source"><a href="scheme/klony-antivirusnyh-i-antiskam-prilozheniy.html">Открыть страницу разбора</a></p>
             </div>
           </details>
@@ -708,23 +720,19 @@
           <details class="scheme-more">
             <summary>Читать разбор</summary>
             <div class="scheme-body">
-              <h2>Что это такое</h2>
+              <h4>Что это такое</h4>
 
 <p>Поддельная поддержка пишет в Telegram, Discord, WhatsApp, по почте или в комментариях. Часто это ответ на ваше публичное сообщение о проблеме с переводом или аккаунтом. Собеседник выглядит официально: логотип, должность, «тикет».</p>
 
-<h2>Как распознать</h2>
+<h4>Как распознать</h4>
 
-<ul><li>Поддержка <strong>сама</strong> написала вам в личные сообщения.</li></ul>
-<ul><li>Просят установить программу удалённого доступа или «безопасный кошелёк для возврата».</li></ul>
-<ul><li>Просят код из SMS, письма или приложения двухфакторной аутентификации.</li></ul>
-<ul><li>Переводят переписку с официального сайта в мессенджер.</li></ul>
-<ul><li>Ссылка ведёт не на домен компании, а на короткую ссылку или похожую страницу.</li></ul>
+<ul><li>Поддержка <strong>сама</strong> написала вам в личные сообщения.</li><li>Просят установить программу удалённого доступа или «безопасный кошелёк для возврата».</li><li>Просят код из SMS, письма или приложения двухфакторной аутентификации.</li><li>Переводят переписку с официального сайта в мессенджер.</li><li>Ссылка ведёт не на домен компании, а на короткую ссылку или похожую страницу.</li></ul>
 
-<h2>Правило</h2>
+<h4>Правило</h4>
 
 <p>Настоящая поддержка бирж, кошельков и банков не запрашивает seed-фразу, пароль, коды 2FA и не просит перевести средства «для проверки». Открывайте тикет только через официальный сайт или приложение, которое вы открыли сами.</p>
 
-<h2>Если уже общались</h2>
+<h4>Если уже общались</h4>
 
 <p>Прекратите переписку, не устанавливайте предложенные программы. Смените пароли и отзовите сессии. Если предоставляли удалённый доступ, проверьте устройство антивирусом и считайте пароли скомпрометированными.</p>
 
@@ -745,26 +753,19 @@
           <details class="scheme-more">
             <summary>Читать разбор</summary>
             <div class="scheme-body">
-              <h2>Что это такое</h2>
+              <h4>Что это такое</h4>
 
 <p>Фишинговый «кошелёк» выглядит как MetaMask, Trust Wallet, Phantom, Ledger Live или другая знакомая оболочка. Отличие — в адресе сайта, издателе расширения и в том, какие разрешения запрашиваются.</p>
 
-<h2>Типичные признаки</h2>
+<h4>Типичные признаки</h4>
 
-<ul><li>Сайт открылся из поисковой рекламы, а не по точной закладке.</li></ul>
-<ul><li>Расширение браузера опубликовано недавно, мало отзывов, издатель не совпадает с официальным.</li></ul>
-<ul><li>Сразу после установки просят «восстановить» кошелёк и ввести 12/24 слова.</li></ul>
-<ul><li>SSL-сертификат есть, но это ничего не доказывает: у фишинговых доменов он тоже бывает.</li></ul>
-<ul><li>В адресной строке другое написание бренда или необычная зона домена.</li></ul>
+<ul><li>Сайт открылся из поисковой рекламы, а не по точной закладке.</li><li>Расширение браузера опубликовано недавно, мало отзывов, издатель не совпадает с официальным.</li><li>Сразу после установки просят «восстановить» кошелёк и ввести 12/24 слова.</li><li>SSL-сертификат есть, но это ничего не доказывает: у фишинговых доменов он тоже бывает.</li><li>В адресной строке другое написание бренда или необычная зона домена.</li></ul>
 
-<h2>Как защититься</h2>
+<h4>Как защититься</h4>
 
-<ul><li>Скачивайте кошельки только с официального сайта проекта, адрес которого вы проверили заранее.</li></ul>
-<ul><li>Сохраните официальный URL в закладки и не пользуйтесь поисковой выдачей для входа.</li></ul>
-<ul><li>Seed-фраза хранится офлайн и никогда не вводится для «проверки», «синхронизации» или «обновления».</li></ul>
-<ul><li>Аппаратный кошелёк подтверждает адрес и сумму на своём экране — сверяйте их.</li></ul>
+<ul><li>Скачивайте кошельки только с официального сайта проекта, адрес которого вы проверили заранее.</li><li>Сохраните официальный URL в закладки и не пользуйтесь поисковой выдачей для входа.</li><li>Seed-фраза хранится офлайн и никогда не вводится для «проверки», «синхронизации» или «обновления».</li><li>Аппаратный кошелёк подтверждает адрес и сумму на своём экране — сверяйте их.</li></ul>
 
-<h2>Что делать при подозрении</h2>
+<h4>Что делать при подозрении</h4>
 
 <p>Закройте вкладку, не подтверждайте запросы. Если фраза уже была введена, кошелёк скомпрометирован: создайте новый и переведите туда только то, что ещё можно спасти, с другого устройства.</p>
 
@@ -785,32 +786,23 @@
           <details class="scheme-more">
             <summary>Читать разбор</summary>
             <div class="scheme-body">
-              <h2>Что это такое</h2>
+              <h4>Что это такое</h4>
 
 <p>Фейковая раздача (giveaway / airdrop) маскируется под акцию известного проекта, биржи или публичного лица. Вас просят «подтвердить кошелёк», отправить «комиссию за вывод» или подписать транзакцию в поддельном приложении.</p>
 
-<h2>Как распознать</h2>
+<h4>Как распознать</h4>
 
-<ul><li>Обещание умножить перевод («пришлите 0.1 ETH, получите 1 ETH»).</li></ul>
-<ul><li>Срочность и таймер, давление «осталось 15 минут».</li></ul>
-<ul><li>Ссылки из комментариев, личных сообщений и рекламы, а не с официального сайта проекта.</li></ul>
-<ul><li>Домен, похожий на настоящий, но с опечаткой или лишним дефисом.</li></ul>
-<ul><li>Требование ввести seed-фразу или «синхронизировать» кошелёк на сторонней странице.</li></ul>
+<ul><li>Обещание умножить перевод («пришлите 0.1 ETH, получите 1 ETH»).</li><li>Срочность и таймер, давление «осталось 15 минут».</li><li>Ссылки из комментариев, личных сообщений и рекламы, а не с официального сайта проекта.</li><li>Домен, похожий на настоящий, но с опечаткой или лишним дефисом.</li><li>Требование ввести seed-фразу или «синхронизировать» кошелёк на сторонней странице.</li></ul>
 
-<h2>Как не попасться</h2>
+<h4>Как не попасться</h4>
 
-<ul><li>Официальные раздачи <strong>никогда</strong> не просят отправить криптовалюту, чтобы получить больше.</li></ul>
-<ul><li>Никому не сообщайте seed-фразу и не вводите её на сайтах.</li></ul>
-<ul><li>Проверяйте домен вручную и заходите только с официального сайта или из приложения кошелька.</li></ul>
-<ul><li>Перед подписью транзакции читайте, что именно вы подтверждаете.</li></ul>
+<ul><li>Официальные раздачи <strong>никогда</strong> не просят отправить криптовалюту, чтобы получить больше.</li><li>Никому не сообщайте seed-фразу и не вводите её на сайтах.</li><li>Проверяйте домен вручную и заходите только с официального сайта или из приложения кошелька.</li><li>Перед подписью транзакции читайте, что именно вы подтверждаете.</li></ul>
 
-<h2>Если уже взаимодействовали</h2>
+<h4>Если уже взаимодействовали</h4>
 
-<ul><li>Немедленно переведите оставшиеся средства на новый кошелёк, созданный на чистом устройстве.</li></ul>
-<ul><li>Считайте старый кошелёк скомпрометированным, seed-фразу больше не используйте.</li></ul>
-<ul><li>Сохраните адреса, ссылки и скриншоты и обратитесь в службу поддержки биржи и в правоохранительные органы.</li></ul>
+<ul><li>Немедленно переведите оставшиеся средства на новый кошелёк, созданный на чистом устройстве.</li><li>Считайте старый кошелёк скомпрометированным, seed-фразу больше не используйте.</li><li>Сохраните адреса, ссылки и скриншоты и обратитесь в службу поддержки биржи и в правоохранительные органы.</li></ul>
 
-              <p class="scheme-source">Источник: <a href="https://www.consumer.ftc.gov/articles/how-avoid-cryptocurrency-scam" target="_blank" rel="noopener noreferrer">https://www.consumer.ftc.gov/articles/how-avoid-cryptocurrency-scam</a></p>
+              <p class="scheme-source">Источник: <a href="https://consumer.ftc.gov/articles/what-know-about-cryptocurrency-scams" target="_blank" rel="noopener noreferrer">https://consumer.ftc.gov/articles/what-know-about-cryptocurrency-scams</a></p>
               <p class="scheme-source"><a href="scheme/feykovye-razdachi-tokenov-i-nft.html">Открыть страницу разбора</a></p>
             </div>
           </details>
@@ -1141,13 +1133,8 @@
       <p class="section-lead">Официальные точки входа. Остальное с похожим названием — почти наверняка клон. Короткий список ссылок для сторис и описаний: <a href="links.html">страница ссылок</a>.</p>
       <div class="social-actions">
         <a class="btn" href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Telegram</a>
-        <!-- {{YOUTUBE_URL}}: when the official YouTube channel is known, uncomment the button, set href, and remove hidden.
-        <a class="btn secondary" hidden href="{{YOUTUBE_URL}}" target="_blank" rel="noopener">YouTube</a>
-        -->
-        <!-- INSTAGRAM_PLACEHOLDER: boss Instagram handle not found in workspace/memory.
-             {{INSTAGRAM_URL}}: when known, uncomment the button, set href, and remove hidden.
-        <a class="btn secondary" hidden href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener">Instagram</a>
-        -->
+        <a class="btn secondary" href="https://www.youtube.com/@ScamRadarNews" target="_blank" rel="noopener">YouTube</a>
+        <!-- INSTAGRAM_PLACEHOLDER: add the official Instagram button here when the handle is confirmed. -->
       </div>
       <ul class="links-list">
         <li>
@@ -1157,25 +1144,14 @@
           </div>
           <span class="value"><a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">t.me/ScamRadarDaily</a></span>
         </li>
-        <!-- {{YOUTUBE_URL}}: uncomment when the official YouTube channel is known.
         <li>
           <div>
             <div class="label">YouTube</div>
             <div class="desc">Разборы и короткие видео</div>
           </div>
-          <span class="value"><a href="{{YOUTUBE_URL}}" target="_blank" rel="noopener">YouTube</a></span>
+          <span class="value"><a href="https://www.youtube.com/@ScamRadarNews" target="_blank" rel="noopener">youtube.com/@ScamRadarNews</a></span>
         </li>
-        -->
-        <!-- INSTAGRAM_PLACEHOLDER: boss Instagram handle not found in workspace/memory.
-             {{INSTAGRAM_URL}}: uncomment and set href when known.
-        <li>
-          <div>
-            <div class="label">Instagram</div>
-            <div class="desc">Короткие алерты и разборы</div>
-          </div>
-          <span class="value"><a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener">Instagram</a></span>
-        </li>
-        -->
+        <!-- INSTAGRAM_PLACEHOLDER: add the official Instagram row here when the handle is confirmed. -->
       </ul>
       <div class="note ok" style="margin-top:16px">
         <strong>Напоминание:</strong>
@@ -1189,6 +1165,18 @@
 
     <section id="faq" class="faq">
       <h2 class="reveal">FAQ</h2>
+      <details class="reveal">
+        <summary>Как проверить сайт на мошенничество?</summary>
+        <p>Откройте сайт вручную, а не по ссылке из сообщения или рекламы. Сверьте домен посимвольно с официальным, проверьте возраст домена, реальные контакты и получателя платежа. Насторожить должны гарантированная доходность, таймер «только сегодня», просьба оплатить переводом на карту физлица или криптой. HTTPS-замок означает только шифрование, а не честность сайта. Подробнее — в <a href="#checklist">чек-листе</a> и разборе <a href="scheme/fishingovye-stranitsy-kriptokoshelkov.html">фишинговых страниц криптокошельков</a>.</p>
+      </details>
+      <details class="reveal reveal-delay-1">
+        <summary>Мне пишет «поддержка» биржи или криптокошелька — это мошенники?</summary>
+        <p>Почти всегда да, если пишут первыми в личку. Настоящая поддержка не просит seed-фразу, приватный ключ, код 2FA, удалённый доступ или перевод на «безопасный адрес». Прервите диалог и обратитесь в поддержку сами через официальное приложение или сайт. Разбор: <a href="scheme/poddelnaya-sluzhba-podderzhki-v-messendzherah.html">поддельная служба поддержки в мессенджерах</a>.</p>
+      </details>
+      <details class="reveal reveal-delay-2" lang="en">
+        <summary>How to check if a website or crypto wallet link is a scam?</summary>
+        <p>Type the address yourself instead of following links from DMs or ads, compare the domain character by character with the official one, and never enter a seed phrase on any website. Fake crypto support never needs your seed phrase, 2FA codes or remote access. Before signing a wallet request, read what you approve: unlimited token approvals are a common wallet phishing trick.</p>
+      </details>
       <details class="reveal">
         <summary>Вы продаёте доступ к маркетплейсу / VIP?</summary>
         <p>Нет. Scam Radar — про разборы скамов и свои утилиты безопасности. Любой, кто под видом «Scam Radar» продаёт VIP, зеркала магазина или просит крипту, — мошенник.</p>
@@ -1330,9 +1318,9 @@
           }
           var chunk = parts[i]
             .replace(/`([^`]+)`/g, '<code>$1</code>')
-            .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-            .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-            .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+            .replace(/^### (.+)$/gm, '<h4>$1</h4>')
+            .replace(/^## (.+)$/gm, '<h4>$1</h4>')
+            .replace(/^# (.+)$/gm, '<h4>$1</h4>')
             .replace(/^\> (.+)$/gm, '<blockquote>$1</blockquote>')
             .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
             .replace(/\*([^*]+)\*/g, '<em>$1</em>')
@@ -1343,7 +1331,7 @@
             })
             .replace(/^\- (.+)$/gm, '<li>$1</li>')
             .replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
-          chunk = chunk.replace(/(<li>[\s\S]+?<\/li>)/g, '<ul>$1</ul>');
+          chunk = chunk.replace(/(?:^<li>.*<\/li>\n?)+/gm, function (m) { return '<ul>' + m.replace(/\n/g, '') + '</ul>\n'; });
           chunk = chunk.replace(/^(?!<h\d|<ul|<blockquote|<pre)(.+)$/gm, '<p>$1</p>');
           html += chunk;
         }

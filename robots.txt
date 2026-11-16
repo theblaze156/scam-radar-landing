@@ -1,8 +1,6 @@
 User-agent: *
 Allow: /
-
-# Thin bio page — keep follow for Telegram/social buttons, but no need to rank it.
-User-agent: *
+# Thin bio page for social bios: no need to index it.
 Disallow: /links.html
 
 Sitemap: https://theblaze156.github.io/scam-radar-landing/sitemap.xml
