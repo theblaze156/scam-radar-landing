@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Поддержать Scam Radar — крипто-донаты (BTC, USDT/USDC)</title>
-  <meta name="description" content="Добровольная поддержка Scam Radar криптовалютой: Bitcoin и USDT/USDC только в сети Polygon. Канал, разборы и базовые приложения остаются бесплатными. Форм для карт нет." />
+  <title>Поддержать Scam Radar — крипто-донаты (BTC, SOL) и PayPal</title>
+  <meta name="description" content="Добровольная поддержка Scam Radar: Bitcoin, Solana, и PayPal как запасной вариант, если нет крипты. Канал, разборы и базовые приложения остаются бесплатными. Форм для карт нет." />
   <link rel="canonical" href="https://theblaze156.github.io/scam-radar-landing/donate.html" />
   <meta name="theme-color" content="#0b0f14" />
   <meta name="robots" content="index,follow" />
@@ -15,14 +15,14 @@
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:site_name" content="Scam Radar" />
   <meta property="og:title" content="Поддержать Scam Radar — крипто-донаты" />
-  <meta property="og:description" content="Добровольные донаты на официальные кошельки проекта: Bitcoin и USDT/USDC только в сети Polygon. Канал и базовые приложения бесплатны." />
+  <meta property="og:description" content="Добровольные донаты на официальные кошельки проекта: Bitcoin и Solana. PayPal — запасной вариант, если нет крипты." />
   <meta property="og:url" content="https://theblaze156.github.io/scam-radar-landing/donate.html" />
   <meta property="og:image" content="https://theblaze156.github.io/scam-radar-landing/preview.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Поддержать Scam Radar — крипто-донаты" />
-  <meta name="twitter:description" content="Добровольные донаты: Bitcoin и USDT/USDC только в сети Polygon." />
+  <meta name="twitter:description" content="Добровольные донаты: Bitcoin и Solana. PayPal — запасной вариант, если нет крипты." />
   <meta name="twitter:image" content="https://theblaze156.github.io/scam-radar-landing/preview.png" />
   <script type="application/ld+json">
   {
@@ -31,7 +31,7 @@
     "name": "Поддержать Scam Radar",
     "url": "https://theblaze156.github.io/scam-radar-landing/donate.html",
     "inLanguage": ["ru", "en"],
-    "description": "Добровольные крипто-донаты на официальные кошельки Scam Radar: Bitcoin и USDT/USDC только в сети Polygon.",
+    "description": "Добровольные донаты на официальные кошельки Scam Radar: Bitcoin и Solana. PayPal — запасной вариант, если нет крипты.",
     "isPartOf": {
       "@type": "WebSite",
       "name": "Scam Radar",
@@ -178,7 +178,28 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      scroll-margin-top: calc(var(--nav-h) + 16px);
     }
+    .paypal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-margin-top: calc(var(--nav-h) + 16px);
+      max-width: 100%;
+    }
+    .paypal-card .tag {
+      display: inline-block; width: fit-content;
+      font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--muted); background: rgba(154,168,184,.1);
+      border: 1px solid var(--border);
+      padding: 3px 8px; border-radius: 999px;
+    }
+    .paypal-card p { color: var(--muted); font-size: .95rem; }
     .wallet-card .tag {
       display: inline-block; width: fit-content;
       font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
@@ -267,8 +288,8 @@
     <header class="page-hero" id="support">
       <div class="badge">Support · Donate</div>
       <h1>Поддержать проект</h1>
-      <p class="lead">Канал, разборы схем и базовые приложения Scam Radar остаются бесплатными. Если хотите поддержать работу проекта, это можно сделать добровольным переводом на официальные адреса ниже. Форм для карт и кнопки PayPal на сайте нет — только криптовалюта.</p>
-      <p class="lead en">The channel, analyses and basic apps stay free. Voluntary donations go directly to the addresses on this official page. Crypto only — no card forms and no PayPal button here.</p>
+      <p class="lead">Канал, разборы схем и базовые приложения Scam Radar остаются бесплатными. Если хотите поддержать работу проекта, это можно сделать добровольным переводом на официальные адреса ниже. Форм для карт нет. Предпочитаем криптовалюту; PayPal — запасной вариант, если крипты нет.</p>
+      <p class="lead en">The channel, analyses and basic apps stay free. Voluntary donations go directly to the official addresses on this page. Crypto is preferred; PayPal is a last-resort option if you have no crypto. No card forms.</p>
     </header>
 
     <div class="note accent">
@@ -285,33 +306,33 @@
       <h2>Официальные адреса / Official addresses</h2>
       <p class="section-lead">Сверьте адрес кошелька посимвольно с текстом на этой странице, в том числе после копирования.</p>
       <div class="wallet-grid">
-        <article class="wallet-card">
+        <article class="wallet-card" id="btc">
           <span class="tag">Bitcoin</span>
-          <h3>BTC</h3>
+          <h3>Bitcoin (BTC)</h3>
           <p class="network">Сеть: Bitcoin (on-chain). / Network: Bitcoin (on-chain).</p>
           <div class="qr-wrap">
-            <img src="donate/qr-btc.png" width="200" height="200" alt="QR-код для доната Bitcoin: bitcoin:bc1q64kevqlm707jvr2vtjp6l5vzca2z0fcc0cemj2">
+            <img src="donate/qr-btc.png" width="200" height="200" alt="QR-код для доната Bitcoin: bitcoin:bc1qc68v8nve7f2hps4a5fy5de0hnrpk473dn0zpmt">
           </div>
           <div class="addr-row">
             <span class="addr-label">Адрес / Address</span>
-            <code id="addr-btc">bc1q64kevqlm707jvr2vtjp6l5vzca2z0fcc0cemj2</code>
+            <code id="addr-btc">bc1qc68v8nve7f2hps4a5fy5de0hnrpk473dn0zpmt</code>
             <button type="button" class="btn secondary" data-copy="addr-btc">Копировать / Copy</button>
             <p class="copy-status" hidden></p>
           </div>
         </article>
 
-        <article class="wallet-card">
-          <span class="tag warn">USDT / USDC · Polygon only</span>
-          <h3>USDT / USDC</h3>
-          <p class="network">Сеть: <strong style="color:var(--warn)">только Polygon (PoS)</strong>. Адрес один для USDT и USDC.</p>
-          <p class="network en">Network: <strong style="color:var(--warn)">Polygon only</strong>. Same address for USDT and USDC.</p>
+        <article class="wallet-card" id="sol">
+          <span class="tag warn">Solana · Solana only</span>
+          <h3>Solana (SOL)</h3>
+          <p class="network">Сеть: <strong style="color:var(--warn)">только Solana</strong>.</p>
+          <p class="network en">Network: <strong style="color:var(--warn)">Solana network only</strong>.</p>
           <div class="qr-wrap">
-            <img src="donate/qr-polygon.png" width="200" height="200" alt="QR-код для доната USDT/USDC в сети Polygon: 0x86b800C640bf3AE2BBdC0557C0C732404897Aaa9">
+            <img src="donate/qr-sol.png" width="200" height="200" alt="QR-код для доната Solana: FgNgkNvUWsyd27hAtewMrG2m4gXLgwoSp1akCEmkSajG">
           </div>
           <div class="addr-row">
             <span class="addr-label">Адрес / Address</span>
-            <code id="addr-polygon">0x86b800C640bf3AE2BBdC0557C0C732404897Aaa9</code>
-            <button type="button" class="btn secondary" data-copy="addr-polygon">Копировать / Copy</button>
+            <code id="addr-sol">FgNgkNvUWsyd27hAtewMrG2m4gXLgwoSp1akCEmkSajG</code>
+            <button type="button" class="btn secondary" data-copy="addr-sol">Копировать / Copy</button>
             <p class="copy-status" hidden></p>
           </div>
         </article>
@@ -319,10 +340,28 @@
     </section>
 
     <div class="note danger">
-      <strong>Важно: только сеть Polygon.</strong>
-      <p>USDT и USDC отправляйте <strong>только в сети Polygon (Polygon PoS)</strong>. Перевод в другой сети (Ethereum, BNB Smart Chain, Arbitrum, Optimism, Tron, Avalanche и т.д.) может привести к безвозвратной потере средств.</p>
-      <p class="en">Send USDT or USDC <strong>on the Polygon network only</strong>. Sending on any other network can result in permanent loss of funds.</p>
+      <strong>Важно: только сеть Solana.</strong>
+      <p>SOL и другие токены Solana отправляйте <strong>только в сети Solana</strong>. Перевод через другой блокчейн или «мост» не по этому адресу может привести к безвозвратной потере средств.</p>
+      <p class="en">Send SOL <strong>on the Solana network only</strong>. Sending on any other network can result in permanent loss of funds.</p>
     </div>
+
+    <section id="paypal">
+      <h2>PayPal — если нет крипты / if you have no crypto</h2>
+      <p class="section-lead">Запасной вариант, только если у вас нет криптовалюты. Last-resort option if you have no crypto. Мы не публикуем paypal.me; перевод — на этот email через Send Money в PayPal.</p>
+      <article class="paypal-card">
+        <span class="tag">PayPal · last resort</span>
+        <h3>PayPal</h3>
+        <p>В приложении PayPal или на paypal.com выберите <strong>Send / Send Money</strong> и укажите этот email. Не отправляйте средства на похожие адреса из личных сообщений.</p>
+        <p class="en">In the PayPal app or on paypal.com, choose <strong>Send Money</strong> and enter this email. Do not send to look-alike addresses from DMs.</p>
+        <div class="addr-row">
+          <span class="addr-label">Email</span>
+          <code id="addr-paypal">lyboy.adress@icloud.com</code>
+          <button type="button" class="btn secondary" data-copy="addr-paypal">Копировать / Copy</button>
+          <p class="copy-status" hidden></p>
+        </div>
+        <p><a href="mailto:lyboy.adress@icloud.com">mailto:lyboy.adress@icloud.com</a></p>
+      </article>
+    </section>
 
     <div class="note ok">
       <strong>Что остаётся бесплатным / What stays free</strong>
