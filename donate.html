@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Поддержать Scam Radar — крипто-донаты (BTC, USDT/USDC)</title>
+  <meta name="description" content="Добровольная поддержка Scam Radar криптовалютой: Bitcoin и USDT/USDC только в сети Polygon. Канал, разборы и базовые приложения остаются бесплатными. Форм для карт нет." />
+  <link rel="canonical" href="https://theblaze156.github.io/scam-radar-landing/donate.html" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Scam Radar" />
+  <meta property="og:title" content="Поддержать Scam Radar — крипто-донаты" />
+  <meta property="og:description" content="Добровольные донаты на официальные кошельки проекта: Bitcoin и USDT/USDC только в сети Polygon. Канал и базовые приложения бесплатны." />
+  <meta property="og:url" content="https://theblaze156.github.io/scam-radar-landing/donate.html" />
+  <meta property="og:image" content="https://theblaze156.github.io/scam-radar-landing/preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Поддержать Scam Radar — крипто-донаты" />
+  <meta name="twitter:description" content="Добровольные донаты: Bitcoin и USDT/USDC только в сети Polygon." />
+  <meta name="twitter:image" content="https://theblaze156.github.io/scam-radar-landing/preview.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Поддержать Scam Radar",
+    "url": "https://theblaze156.github.io/scam-radar-landing/donate.html",
+    "inLanguage": ["ru", "en"],
+    "description": "Добровольные крипто-донаты на официальные кошельки Scam Radar: Bitcoin и USDT/USDC только в сети Polygon.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Scam Radar",
+      "url": "https://theblaze156.github.io/scam-radar-landing/"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #141a22;
+      --surface2: #1c2430;
+      --border: #2a3544;
+      --text: #e8eef6;
+      --muted: #9aa8b8;
+      --accent: #3dd6c6;
+      --accent-dim: #2a9e92;
+      --accent-glow: rgba(61,214,198,.35);
+      --warn: #f0b429;
+      --danger: #e85d5d;
+      --ok: #5dcea3;
+      --radius: 14px;
+      --shadow: 0 8px 32px rgba(0,0,0,.45);
+      --nav-h: 56px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(61,214,198,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(61,214,198,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at 50% 20%, #000 0%, transparent 70%);
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 24px 20px 64px; position: relative; z-index: 1; }
+
+    .topnav {
+      position: sticky; top: 0; z-index: 50;
+      margin: -24px -20px 0; padding: 10px 16px;
+      background: rgba(11,15,20,.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .topnav .brand {
+      font-weight: 800; letter-spacing: -.02em; color: var(--text);
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    }
+    .topnav .brand img { width: 18px; height: 18px; display: block; }
+    .topnav .brand .dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent-glow);
+      animation: ping 2.2s ease-out infinite;
+    }
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+      70% { box-shadow: 0 0 0 8px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+    .topnav nav { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+    .topnav nav a {
+      color: var(--muted); font-size: 13px; font-weight: 600;
+      padding: 6px 8px; border-radius: 8px; text-decoration: none;
+    }
+    .topnav nav a:hover { color: var(--accent); background: rgba(61,214,198,.08); text-decoration: none; }
+    .topnav nav a.current { color: var(--accent); background: rgba(61,214,198,.08); }
+
+    header.page-hero {
+      text-align: center;
+      padding: 40px 16px 32px;
+      margin: 0 -20px 32px;
+      padding-left: 20px; padding-right: 20px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(ellipse at 50% 0%, #16303a 0%, transparent 58%);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent-dim);
+      padding: 4px 10px; border-radius: 999px; margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(1.7rem, 5vw, 2.4rem);
+      font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px;
+    }
+    .lead { color: var(--muted); max-width: 640px; margin: 0 auto 10px; font-size: 1.05rem; }
+    .lead.en { font-size: .95rem; opacity: .9; }
+
+    section { margin-bottom: 36px; }
+    h2 {
+      font-size: 1.25rem; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2::before {
+      content: ""; width: 4px; height: 1.1em; background: var(--accent); border-radius: 2px;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .section-lead { color: var(--muted); margin-bottom: 20px; max-width: 640px; font-size: .95rem; }
+
+    .note {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 4px solid var(--warn); border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+    .note.ok { border-left-color: var(--ok); }
+    .note.danger { border-left-color: var(--danger); }
+    .note.accent { border-left-color: var(--accent); }
+    .note strong { color: var(--warn); }
+    .note.ok strong { color: var(--ok); }
+    .note.danger strong { color: var(--danger); }
+    .note.accent strong { color: var(--accent); }
+    .note ul { margin: 10px 0 0 18px; color: var(--muted); }
+    .note li { margin-bottom: 6px; }
+    .note p { color: var(--muted); }
+    .note p + p, .note p + ul { margin-top: 8px; }
+    .en { color: var(--muted); }
+
+    .wallet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .wallet-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .wallet-card .tag {
+      display: inline-block; width: fit-content;
+      font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--accent); background: rgba(61,214,198,.1);
+      border: 1px solid rgba(61,214,198,.3);
+      padding: 3px 8px; border-radius: 999px;
+    }
+    .wallet-card .tag.warn {
+      color: var(--warn); background: rgba(240,180,41,.1); border-color: rgba(240,180,41,.3);
+    }
+    .wallet-card .network { color: var(--muted); font-size: .9rem; margin-bottom: 4px; }
+    .qr-wrap {
+      align-self: center;
+      background: #fff;
+      padding: 12px;
+      border-radius: 12px;
+      line-height: 0;
+    }
+    .qr-wrap img { width: 200px; height: 200px; display: block; }
+    .addr-label { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+    .addr-row { display: flex; flex-direction: column; gap: 10px; }
+    .addr-row code {
+      display: block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: .85rem;
+      line-height: 1.45;
+      word-break: break-all;
+      user-select: all;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--text);
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: .95rem;
+      border: 1px solid transparent; cursor: pointer;
+      transition: transform .2s, background .2s, box-shadow .2s, filter .2s;
+      text-decoration: none; color: var(--bg); background: var(--accent);
+      font-family: inherit;
+    }
+    .btn:hover {
+      transform: translateY(-2px); text-decoration: none; filter: brightness(1.06);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+    .btn.secondary {
+      background: var(--surface2); color: var(--text); border-color: var(--border);
+    }
+    .btn.secondary:hover { box-shadow: 0 8px 24px rgba(0,0,0,.35); filter: none; }
+    .btn.copied { background: var(--ok); color: #0b0f14; border-color: var(--ok); }
+    .copy-status { min-height: 1.2em; font-size: .8rem; color: var(--ok); }
+
+    footer {
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+      text-align: center; color: var(--muted); font-size: .85rem;
+    }
+    footer p + p { margin-top: 6px; }
+    footer .en { margin-top: 8px; opacity: .75; }
+
+    @media (max-width: 720px) {
+      .wallet-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+      .btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="topnav">
+      <a class="brand" href="index.html"><img src="favicon.svg" width="18" height="18" alt="Логотип Scam Radar: радар бирюзового цвета на тёмном фоне"> <span class="dot" aria-hidden="true"></span> Scam Radar</a>
+      <nav>
+        <a href="index.html#about">О проекте</a>
+        <a href="index.html#pricing">Доступ</a>
+        <a href="index.html#schemes">Разборы</a>
+        <a href="index.html#apps">Приложения</a>
+        <a href="donate.html" class="current" aria-current="page">Поддержать</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+    </div>
+
+    <header class="page-hero" id="support">
+      <div class="badge">Support · Donate</div>
+      <h1>Поддержать проект</h1>
+      <p class="lead">Канал, разборы схем и базовые приложения Scam Radar остаются бесплатными. Если хотите поддержать работу проекта, это можно сделать добровольным переводом на официальные адреса ниже. Форм для карт и кнопки PayPal на сайте нет — только криптовалюта.</p>
+      <p class="lead en">The channel, analyses and basic apps stay free. Voluntary donations go directly to the addresses on this official page. Crypto only — no card forms and no PayPal button here.</p>
+    </header>
+
+    <div class="note accent">
+      <strong>Только эта страница.</strong>
+      <ul>
+        <li>Сверьте адрес сайта посимвольно: <code>theblaze156.github.io/scam-radar-landing/</code></li>
+        <li>Мы не пишем в личку первыми с просьбой перевести крипту. Если пишут — это не мы.</li>
+        <li>Мы никогда не просим сид-фразу, private key, пароль или «комиссию за доступ».</li>
+      </ul>
+      <p class="en" style="margin-top:12px">Verify the URL character by character. We never DM first asking you to send crypto, and we never ask for seed phrases, keys or passwords.</p>
+    </div>
+
+    <section>
+      <h2>Официальные адреса / Official addresses</h2>
+      <p class="section-lead">Сверьте адрес кошелька посимвольно с текстом на этой странице, в том числе после копирования.</p>
+      <div class="wallet-grid">
+        <article class="wallet-card">
+          <span class="tag">Bitcoin</span>
+          <h3>BTC</h3>
+          <p class="network">Сеть: Bitcoin (on-chain). / Network: Bitcoin (on-chain).</p>
+          <div class="qr-wrap">
+            <img src="donate/qr-btc.png" width="200" height="200" alt="QR-код для доната Bitcoin: bitcoin:bc1q64kevqlm707jvr2vtjp6l5vzca2z0fcc0cemj2">
+          </div>
+          <div class="addr-row">
+            <span class="addr-label">Адрес / Address</span>
+            <code id="addr-btc">bc1q64kevqlm707jvr2vtjp6l5vzca2z0fcc0cemj2</code>
+            <button type="button" class="btn secondary" data-copy="addr-btc">Копировать / Copy</button>
+            <p class="copy-status" hidden></p>
+          </div>
+        </article>
+
+        <article class="wallet-card">
+          <span class="tag warn">USDT / USDC · Polygon only</span>
+          <h3>USDT / USDC</h3>
+          <p class="network">Сеть: <strong style="color:var(--warn)">только Polygon (PoS)</strong>. Адрес один для USDT и USDC.</p>
+          <p class="network en">Network: <strong style="color:var(--warn)">Polygon only</strong>. Same address for USDT and USDC.</p>
+          <div class="qr-wrap">
+            <img src="donate/qr-polygon.png" width="200" height="200" alt="QR-код для доната USDT/USDC в сети Polygon: 0x86b800C640bf3AE2BBdC0557C0C732404897Aaa9">
+          </div>
+          <div class="addr-row">
+            <span class="addr-label">Адрес / Address</span>
+            <code id="addr-polygon">0x86b800C640bf3AE2BBdC0557C0C732404897Aaa9</code>
+            <button type="button" class="btn secondary" data-copy="addr-polygon">Копировать / Copy</button>
+            <p class="copy-status" hidden></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="note danger">
+      <strong>Важно: только сеть Polygon.</strong>
+      <p>USDT и USDC отправляйте <strong>только в сети Polygon (Polygon PoS)</strong>. Перевод в другой сети (Ethereum, BNB Smart Chain, Arbitrum, Optimism, Tron, Avalanche и т.д.) может привести к безвозвратной потере средств.</p>
+      <p class="en">Send USDT or USDC <strong>on the Polygon network only</strong>. Sending on any other network can result in permanent loss of funds.</p>
+    </div>
+
+    <div class="note ok">
+      <strong>Что остаётся бесплатным / What stays free</strong>
+      <ul>
+        <li>Telegram-канал, разборы схем и базовые приложения — бесплатно, донат не обязателен.</li>
+        <li>Premium и платные сборки APK по-прежнему оформляются в официальном Telegram-канале.</li>
+      </ul>
+      <p class="en" style="margin-top:12px">The Telegram channel, scam analyses and basic apps stay free. Premium and paid APK builds are still arranged in the official Telegram channel. Donations are voluntary.</p>
+    </div>
+
+    <p><a href="index.html">← На главную / Back to the site</a> · <a href="https://t.me/ScamRadarDaily" target="_blank" rel="noopener">Telegram</a></p>
+
+    <footer>
+      <p>© Scam Radar · образовательный проект о безопасности</p>
+      <p>Канал: <a href="https://t.me/ScamRadarDaily">t.me/ScamRadarDaily</a> · <a href="donate.html">Поддержать / Support</a></p>
+      <p class="en">
+        Scam Radar — scam breakdowns &amp; security apps. Official links only.
+        We never ask for seed phrases or passwords. Voluntary crypto donations are on this page.
+      </p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        return ok;
+      }
+      function copied(btn, status) {
+        var prev = btn.textContent;
+        btn.textContent = 'Скопировано / Copied';
+        btn.classList.add('copied');
+        if (status) {
+          status.hidden = false;
+          status.textContent = 'Адрес скопирован. Сверьте его посимвольно. / Address copied. Check it character by character.';
+        }
+        setTimeout(function () {
+          btn.textContent = prev;
+          btn.classList.remove('copied');
+        }, 2000);
+      }
+      document.querySelectorAll('[data-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var el = document.getElementById(btn.getAttribute('data-copy'));
+          if (!el) return;
+          var text = (el.textContent || '').trim();
+          var status = btn.parentElement.querySelector('.copy-status');
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () { copied(btn, status); }).catch(function () {
+              if (fallbackCopy(text)) copied(btn, status);
+            });
+          } else if (fallbackCopy(text)) {
+            copied(btn, status);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
